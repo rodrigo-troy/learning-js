@@ -1,5 +1,10 @@
 //Values are passed around by reference
 
+var stooge = {
+    "first-name": "Jerome",
+    "last-name": "Howard"
+};
+
 var x = stooge;
 x.nickname = 'Curly';
 var nick = stooge.nickname;
