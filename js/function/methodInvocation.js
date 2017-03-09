@@ -6,7 +6,8 @@ var myObject = {
 
         var that = this;
         var otraFuncion = function () {
-            console.log(that.textoFijo);
+            console.log("this: " + this.textoFijo);
+            console.log("that: " + that.textoFijo);
         };
 
         otraFuncion();
