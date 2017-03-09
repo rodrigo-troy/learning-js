@@ -23,3 +23,7 @@ var flight = {
 console.log(flight.airline);
 console.log(flight.departure.city);
 console.log(flight.arrival.time);
+
+flight.nuevaVariable = 12345;
+
+console.log(flight.nuevaVariable);
