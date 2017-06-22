@@ -25,8 +25,6 @@ console.log("Como la funcion esta montada sobre el objeto 'unObject', this devue
 console.log("\nAunque le puedo pasar el context usando 'call' :)");
 unObject.unaFuncion.call(window);
 
-
-ar;
 unObject = {
     a: 1,
     unaFuncion: function () {
