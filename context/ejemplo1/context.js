@@ -3,9 +3,11 @@ console.log("Inicio");
 console.log("\n¿Es 'this' el objeto window? " + (this === window));
 
 var a = 1;
+console.log("var a = 1;");
+console.log("¿es window.a === this.a?");
 console.log(window.a === this.a);
 
-console.log("\n¿Y adentro de una función que sera?");
+console.log("\n¿Y adentro de una función que sera 'this'?");
 function unaFuncion() {
     console.log(this);
 }
