@@ -12,7 +12,7 @@ $(function () {
 
 (function () {
     var a = 1;
-    console.log("INICIO");
+    console.log("Esto es una Immediately-Invoked Function Expression");
 
     console.log(this);
 
