@@ -14,7 +14,7 @@ Number.agregarMetodo('integer', function () {
 });
 
 
-Number.agregarMetodo('lala', this);
+Number.agregarMetodo('lala', 'LELE');   //LELE NO ES UNA FUNCION, PERO COMO JAVASCRIPT NO ES FUERTEMENTE TIPEADO, ESTA LLAMADA ES VALIDA
 
 console.log("lala");
 console.log((1).lala);
