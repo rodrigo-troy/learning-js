@@ -16,6 +16,8 @@ var myObject = (function () {
     }
 })();
 
+console.log("We are not assigning a function to 'myObject'. We are assigning the result of invoking that function.");
+
 myObject.increment();
 myObject.increment();
 myObject.increment();
