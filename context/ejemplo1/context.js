@@ -31,7 +31,7 @@ unObject.unaFuncion();
 console.log("Como la función esta vinculada al objeto 'unObject', 'this' devuelve 'unObject'");
 
 
-console.log("\nAunque le puedo pasar el context usando 'call'");
+console.log("\nAunque le puedo pasar el context usando 'call':");
 unObject.unaFuncion.call(window);
 
 
@@ -51,12 +51,14 @@ var otroObjeto = {
         };
 
         funcionDentroDeOtraFuncion();
+        console.log(this);
     }
 };
 otroObjeto.unaFuncion();
-console.log("Se debe usar una variable (var that) para poder acceder al objeto.");
+console.log("Se debe usar una variable auxiliar (var that) para poder acceder al objeto.\n\n");
 
 
+console.log("Independiente de lo anidado, si se declara una funcion usando la forma: var x = function(){}, el contexto sera windows");
 var objetosAnidados = {
     funcion0: function () {
         console.log(this);
@@ -71,8 +73,8 @@ var objetosAnidados = {
                     console.log(this);
                 };
 
-                console.log(this);
                 funcionMasAnidadaAun();
+                console.log(this);
             };
 
             funcionMuyAnidada();
