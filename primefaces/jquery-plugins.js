@@ -1,3 +1,5 @@
+console.log("inicio jquery-plugins.js");
+
 /*! jQuery UI - v1.11.0 - 2014-07-22
  * http://jqueryui.com
  * Includes: core.js, widget.js, mouse.js, position.js, draggable.js, droppable.js, resizable.js, selectable.js, sortable.js, datepicker.js, slider.js, effect.js, effect-blind.js, effect-bounce.js, effect-clip.js, effect-drop.js, effect-explode.js, effect-fade.js, effect-fold.js, effect-highlight.js, effect-puff.js, effect-pulsate.js, effect-scale.js, effect-shake.js, effect-size.js, effect-slide.js, effect-transfer.js
@@ -103,10 +105,10 @@
             return !!img && visible(img);
         }
         return ( /input|select|textarea|button|object/.test(nodeName) ?
-                !element.disabled :
-                "a" === nodeName ?
-                    element.href || isTabIndexNotNaN :
-                    isTabIndexNotNaN) &&
+            !element.disabled :
+            "a" === nodeName ?
+                element.href || isTabIndexNotNaN :
+                isTabIndexNotNaN) &&
             // the element and all of its ancestors must be visible
             visible(element);
     }
@@ -711,7 +713,7 @@
                     // - disabled class as method for disabling individual parts
                     if (!suppressDisabledCheck &&
                         ( instance.options.disabled === true ||
-                        $(this).hasClass("ui-state-disabled") )) {
+                            $(this).hasClass("ui-state-disabled") )) {
                         return;
                     }
                     return ( typeof handler === "string" ? instance[handler] : handler )
@@ -799,8 +801,8 @@
 
             this.element.trigger(event, data);
             return !( $.isFunction(callback) &&
-            callback.apply(this.element[0], [event].concat(data)) === false ||
-            event.isDefaultPrevented() );
+                callback.apply(this.element[0], [event].concat(data)) === false ||
+                event.isDefaultPrevented() );
         }
     };
 
@@ -1114,7 +1116,7 @@
             },
             getScrollInfo: function (within) {
                 var overflowX = within.isWindow || within.isDocument ? "" :
-                        within.element.css("overflow-x"),
+                    within.element.css("overflow-x"),
                     overflowY = within.isWindow || within.isDocument ? "" :
                         within.element.css("overflow-y"),
                     hasOverflowX = overflowX === "scroll" ||
@@ -2447,24 +2449,24 @@
                     rs = Math.abs(r - x1) <= d;
                     if (ts) {
                         ui.position.top = inst._convertPositionTo("relative", {
-                                top: t - inst.helperProportions.height,
-                                left: 0
-                            }).top - inst.margins.top;
+                            top: t - inst.helperProportions.height,
+                            left: 0
+                        }).top - inst.margins.top;
                     }
                     if (bs) {
                         ui.position.top = inst._convertPositionTo("relative", {top: b, left: 0}).top - inst.margins.top;
                     }
                     if (ls) {
                         ui.position.left = inst._convertPositionTo("relative", {
-                                top: 0,
-                                left: l - inst.helperProportions.width
-                            }).left - inst.margins.left;
+                            top: 0,
+                            left: l - inst.helperProportions.width
+                        }).left - inst.margins.left;
                     }
                     if (rs) {
                         ui.position.left = inst._convertPositionTo("relative", {
-                                top: 0,
-                                left: r
-                            }).left - inst.margins.left;
+                            top: 0,
+                            left: r
+                        }).left - inst.margins.left;
                     }
                 }
 
@@ -2480,21 +2482,21 @@
                     }
                     if (bs) {
                         ui.position.top = inst._convertPositionTo("relative", {
-                                top: b - inst.helperProportions.height,
-                                left: 0
-                            }).top - inst.margins.top;
+                            top: b - inst.helperProportions.height,
+                            left: 0
+                        }).top - inst.margins.top;
                     }
                     if (ls) {
                         ui.position.left = inst._convertPositionTo("relative", {
-                                top: 0,
-                                left: l
-                            }).left - inst.margins.left;
+                            top: 0,
+                            left: l
+                        }).left - inst.margins.left;
                     }
                     if (rs) {
                         ui.position.left = inst._convertPositionTo("relative", {
-                                top: 0,
-                                left: r - inst.helperProportions.width
-                            }).left - inst.margins.left;
+                            top: 0,
+                            left: r - inst.helperProportions.width
+                        }).left - inst.margins.left;
                     }
                 }
 
@@ -2789,23 +2791,23 @@
                     return ( l <= x1 && x2 <= r && t <= y1 && y2 <= b );
                 case "intersect":
                     return ( l < x1 + ( draggable.helperProportions.width / 2 ) && // Right Half
-                    x2 - ( draggable.helperProportions.width / 2 ) < r && // Left Half
-                    t < y1 + ( draggable.helperProportions.height / 2 ) && // Bottom Half
-                    y2 - ( draggable.helperProportions.height / 2 ) < b ); // Top Half
+                        x2 - ( draggable.helperProportions.width / 2 ) < r && // Left Half
+                        t < y1 + ( draggable.helperProportions.height / 2 ) && // Bottom Half
+                        y2 - ( draggable.helperProportions.height / 2 ) < b ); // Top Half
                 case "pointer":
                     draggableLeft = ( ( draggable.positionAbs || draggable.position.absolute ).left + ( draggable.clickOffset || draggable.offset.click ).left );
                     draggableTop = ( ( draggable.positionAbs || draggable.position.absolute ).top + ( draggable.clickOffset || draggable.offset.click ).top );
                     return isOverAxis(draggableTop, t, droppable.proportions().height) && isOverAxis(draggableLeft, l, droppable.proportions().width);
                 case "touch":
                     return (
-                            ( y1 >= t && y1 <= b ) || // Top edge touching
-                            ( y2 >= t && y2 <= b ) || // Bottom edge touching
-                            ( y1 < t && y2 > b ) // Surrounded vertically
-                        ) && (
-                            ( x1 >= l && x1 <= r ) || // Left edge touching
-                            ( x2 >= l && x2 <= r ) || // Right edge touching
-                            ( x1 < l && x2 > r ) // Surrounded horizontally
-                        );
+                        ( y1 >= t && y1 <= b ) || // Top edge touching
+                        ( y2 >= t && y2 <= b ) || // Bottom edge touching
+                        ( y1 < t && y2 > b ) // Surrounded vertically
+                    ) && (
+                        ( x1 >= l && x1 <= r ) || // Left edge touching
+                        ( x2 >= l && x2 <= r ) || // Right edge touching
+                        ( x1 < l && x2 > r ) // Surrounded horizontally
+                    );
                 default:
                     return false;
             }
@@ -3083,15 +3085,15 @@
             }
 
             this.handles = o.handles || (!$(".ui-resizable-handle", this.element).length ? "e,s,se" : {
-                    n: ".ui-resizable-n",
-                    e: ".ui-resizable-e",
-                    s: ".ui-resizable-s",
-                    w: ".ui-resizable-w",
-                    se: ".ui-resizable-se",
-                    sw: ".ui-resizable-sw",
-                    ne: ".ui-resizable-ne",
-                    nw: ".ui-resizable-nw"
-                });
+                n: ".ui-resizable-n",
+                e: ".ui-resizable-e",
+                s: ".ui-resizable-s",
+                w: ".ui-resizable-w",
+                se: ".ui-resizable-se",
+                sw: ".ui-resizable-sw",
+                ne: ".ui-resizable-ne",
+                nw: ".ui-resizable-nw"
+            });
             if (this.handles.constructor === String) {
 
                 if (this.handles === "all") {
@@ -4856,9 +4858,9 @@
             } else {
 
                 return (l < x1 + (this.helperProportions.width / 2) && // Right Half
-                x2 - (this.helperProportions.width / 2) < r && // Left Half
-                t < y1 + (this.helperProportions.height / 2) && // Bottom Half
-                y2 - (this.helperProportions.height / 2) < b ); // Top Half
+                    x2 - (this.helperProportions.width / 2) < r && // Left Half
+                    t < y1 + (this.helperProportions.height / 2) && // Bottom Half
+                    y2 - (this.helperProportions.height / 2) < b ); // Top Half
 
             }
         },
@@ -5896,7 +5898,7 @@
                     date.setMonth(findMax(this._get(inst, (dateFormat.match(/MM/) ?
                         "monthNames" : "monthNamesShort"))));
                     date.setDate(findMax(this._get(inst, (dateFormat.match(/DD/) ?
-                            "dayNames" : "dayNamesShort"))) + 20 - date.getDay());
+                        "dayNames" : "dayNamesShort"))) + 20 - date.getDay());
                 }
                 inst.input.attr("size", this._formatDate(inst, date).length);
             }
@@ -6561,10 +6563,10 @@
                 inst = $.datepicker._getInst($target[0]);
 
             if (( ( $target[0].id !== $.datepicker._mainDivId &&
-                $target.parents("#" + $.datepicker._mainDivId).length === 0 &&
-                !$target.hasClass($.datepicker.markerClassName) &&
-                !$target.closest("." + $.datepicker._triggerClass).length &&
-                $.datepicker._datepickerShowing && !($.datepicker._inDialog && $.blockUI) ) ) ||
+                    $target.parents("#" + $.datepicker._mainDivId).length === 0 &&
+                    !$target.hasClass($.datepicker.markerClassName) &&
+                    !$target.closest("." + $.datepicker._triggerClass).length &&
+                    $.datepicker._datepickerShowing && !($.datepicker._inDialog && $.blockUI) ) ) ||
                 ( $target.hasClass($.datepicker.markerClassName) && $.datepicker._curInst !== inst )) {
                 $.datepicker._hideDatepicker();
             }
@@ -6907,7 +6909,7 @@
         W3C: "yy-mm-dd", // ISO 8601
 
         _ticksTo1970: (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) +
-        Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000),
+            Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000),
 
         /* Format a date object into a string value.
          * The format can be combinations of the following:
@@ -7126,7 +7128,7 @@
                     }
 
                     var date = (offset.toLowerCase().match(/^c/) ?
-                                $.datepicker._getDate(inst) : null) || new Date(),
+                        $.datepicker._getDate(inst) : null) || new Date(),
                         year = date.getFullYear(),
                         month = date.getMonth(),
                         day = date.getDate(),
@@ -7431,7 +7433,7 @@
                         drawYear++;
                     }
                     calender += "</tbody></table>" + (isMultiMonth ? "</div>" +
-                            ((numMonths[0] > 0 && col === numMonths[1] - 1) ? "<div class='ui-datepicker-row-break'></div>" : "") : "");
+                        ((numMonths[0] > 0 && col === numMonths[1] - 1) ? "<div class='ui-datepicker-row-break'></div>" : "") : "");
                     group += calender;
                 }
                 html += group;
@@ -7600,9 +7602,9 @@
             }
 
             return ((!minDate || date.getTime() >= minDate.getTime()) &&
-            (!maxDate || date.getTime() <= maxDate.getTime()) &&
-            (!minYear || date.getFullYear() >= minYear) &&
-            (!maxYear || date.getFullYear() <= maxYear));
+                (!maxDate || date.getTime() <= maxDate.getTime()) &&
+                (!minYear || date.getFullYear() >= minYear) &&
+                (!maxYear || date.getFullYear() <= maxYear));
         },
 
         /* Provide the configuration settings for formatting/parsing. */
@@ -7897,7 +7899,7 @@
                 var thisDistance = Math.abs(normValue - that.values(i));
                 if (( distance > thisDistance ) ||
                     ( distance === thisDistance &&
-                    (i === that._lastChangedValue || that.values(i) === o.min ))) {
+                        (i === that._lastChangedValue || that.values(i) === o.min ))) {
                     distance = thisDistance;
                     closestHandle = $(this);
                     index = i;
@@ -8829,10 +8831,10 @@
 
                 return "#" + jQuery.map(rgba, function (v) {
 
-                        // default to 0 when nulls exist
-                        v = ( v || 0 ).toString(16);
-                        return v.length === 1 ? "0" + v : v;
-                    }).join("");
+                    // default to 0 when nulls exist
+                    v = ( v || 0 ).toString(16);
+                    return v.length === 1 ? "0" + v : v;
+                }).join("");
             },
             toString: function () {
                 return this._rgba[3] === 0 ? "transparent" : this.toRgbaString();
@@ -9003,8 +9005,8 @@
                             if (!support.rgba && value._rgba[3] !== 1) {
                                 curElem = hook === "backgroundColor" ? elem.parentNode : elem;
                                 while (
-                                (backgroundColor === "" || backgroundColor === "transparent") &&
-                                curElem && curElem.style
+                                    (backgroundColor === "" || backgroundColor === "transparent") &&
+                                    curElem && curElem.style
                                     ) {
                                     try {
                                         backgroundColor = jQuery.css(curElem, "backgroundColor");
@@ -9995,8 +9997,8 @@
 
         // Animation
         animation[ref] = ( show ?
-                ( motion === "pos" ? "+=" : "-=" ) :
-                ( motion === "pos" ? "-=" : "+=" ) ) +
+            ( motion === "pos" ? "+=" : "-=" ) :
+            ( motion === "pos" ? "-=" : "+=" ) ) +
             distance;
 
         // Animate
@@ -10522,11 +10524,11 @@
         }
 
         options.from = o.from || ( mode === "show" ? {
-                height: 0,
-                width: 0,
-                outerHeight: 0,
-                outerWidth: 0
-            } : original );
+            height: 0,
+            width: 0,
+            outerHeight: 0,
+            outerWidth: 0
+        } : original );
         options.to = {
             height: original.height * factor.y,
             width: original.width * factor.x,
@@ -10769,8 +10771,8 @@
 
         // Animation
         animation[ref] = ( show ?
-                ( positiveMotion ? "+=" : "-=") :
-                ( positiveMotion ? "-=" : "+=")) +
+            ( positiveMotion ? "+=" : "-=") :
+            ( positiveMotion ? "-=" : "+=")) +
             distance;
 
         // Animate
@@ -11775,8 +11777,8 @@
         _updateDateTime: function (dp_inst) {
             dp_inst = this.inst || dp_inst;
             var dtTmp = (dp_inst.currentYear > 0 ?
-                    new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay) :
-                    new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay)),
+                new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay) :
+                new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay)),
                 dt = $.datepicker._daylightSavingAdjust(dtTmp),
                 //dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay)),
                 //dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay)),
@@ -12093,31 +12095,31 @@
             };
 
             var regstr = '^' + f.toString()
-                        .replace(/([hH]{1,2}|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|'.*?')/g, function (match) {
-                            var ml = match.length;
-                            switch (match.charAt(0).toLowerCase()) {
-                                case 'h':
-                                    return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
-                                case 'm':
-                                    return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
-                                case 's':
-                                    return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
-                                case 'l':
-                                    return '(\\d?\\d?\\d)';
-                                case 'c':
-                                    return '(\\d?\\d?\\d)';
-                                case 'z':
-                                    return '(z|[-+]\\d\\d:?\\d\\d|\\S+)?';
-                                case 't':
-                                    return getPatternAmpm(o.amNames, o.pmNames);
-                                default:    // literal escaped in quotes
-                                    return '(' + match.replace(/\'/g, "").replace(/(\.|\$|\^|\\|\/|\(|\)|\[|\]|\?|\+|\*)/g, function (m) {
-                                            return "\\" + m;
-                                        }) + ')?';
-                            }
-                        })
-                        .replace(/\s/g, '\\s?') +
-                    o.timeSuffix + '$',
+                    .replace(/([hH]{1,2}|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|'.*?')/g, function (match) {
+                        var ml = match.length;
+                        switch (match.charAt(0).toLowerCase()) {
+                            case 'h':
+                                return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
+                            case 'm':
+                                return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
+                            case 's':
+                                return ml === 1 ? '(\\d?\\d)' : '(\\d{' + ml + '})';
+                            case 'l':
+                                return '(\\d?\\d?\\d)';
+                            case 'c':
+                                return '(\\d?\\d?\\d)';
+                            case 'z':
+                                return '(z|[-+]\\d\\d:?\\d\\d|\\S+)?';
+                            case 't':
+                                return getPatternAmpm(o.amNames, o.pmNames);
+                            default:    // literal escaped in quotes
+                                return '(' + match.replace(/\'/g, "").replace(/(\.|\$|\^|\\|\/|\(|\)|\[|\]|\?|\+|\*)/g, function (m) {
+                                    return "\\" + m;
+                                }) + ')?';
+                        }
+                    })
+                    .replace(/\s/g, '\\s?') +
+                o.timeSuffix + '$',
                 order = getFormatPositions(f),
                 ampm = '',
                 treg;
@@ -12964,8 +12966,8 @@
         }
 
         return ((normalized.substr(0, 1) === '-' ? -1 : 1) * // plus or minus
-        ((parseInt(normalized.substr(1, 2), 10) * 60) + // hours (converted to minutes)
-        parseInt(normalized.substr(3, 2), 10))); // minutes
+            ((parseInt(normalized.substr(1, 2), 10) * 60) + // hours (converted to minutes)
+                parseInt(normalized.substr(3, 2), 10))); // minutes
     };
 
     /**
@@ -13404,10 +13406,10 @@
             if (0 !== this.length && !this.is(":hidden")) return "number" == typeof begin ? (end = "number" == typeof end ? end : begin,
                 this.each(function () {
                     this.setSelectionRange ? this.setSelectionRange(begin, end) : this.createTextRange && (range = this.createTextRange(),
-                            range.collapse(!0), range.moveEnd("character", end), range.moveStart("character", begin),
-                            range.select());
+                        range.collapse(!0), range.moveEnd("character", end), range.moveStart("character", begin),
+                        range.select());
                 })) : (this[0].setSelectionRange ? (begin = this[0].selectionStart, end = this[0].selectionEnd) : document.selection && document.selection.createRange && (range = document.selection.createRange(),
-                    begin = 0 - range.duplicate().moveStart("character", -1e5), end = begin + range.text.length),
+                begin = 0 - range.duplicate().moveStart("character", -1e5), end = begin + range.text.length),
                 {
                     begin: begin,
                     end: end
@@ -13496,7 +13498,7 @@
                             begin = pos.begin, end = pos.end, end - begin === 0 && (begin = 46 !== k ? seekPrev(begin) : end = seekNext(begin - 1),
                             end = 46 === k ? seekNext(end) : end), clearBuffer(begin, end), shiftL(begin, end - 1),
                             e.preventDefault()) : 13 === k ? blurEvent.call(this, e) : 27 === k && (input.val(focusText),
-                                input.caret(0, checkVal()), e.preventDefault());
+                            input.caret(0, checkVal()), e.preventDefault());
                     }
                 }
 
@@ -13903,8 +13905,8 @@ $(function () {
             var thiz = this[0];
             var result = this.css(styleName);
             result = result || ($.browser.msie ?
-                    thiz.currentStyle[styleName] :
-                    document.defaultView.getComputedStyle(thiz, null)[styleName]);
+                thiz.currentStyle[styleName] :
+                document.defaultView.getComputedStyle(thiz, null)[styleName]);
             return result;
         },
         // easy clone method

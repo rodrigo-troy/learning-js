@@ -1,3 +1,5 @@
+console.log("inicio jquery.js");
+
 /*!
  * jQuery JavaScript Library v1.11.3
  * http://jquery.com/
@@ -1191,10 +1193,10 @@
 
                 // Class
                 Expr.find["CLASS"] = support.getElementsByClassName && function (className, context) {
-                        if (documentIsHTML) {
-                            return context.getElementsByClassName(className);
-                        }
-                    };
+                    if (documentIsHTML) {
+                        return context.getElementsByClassName(className);
+                    }
+                };
 
                 /* QSA/matchesSelector
                  ---------------------------------------------------------------------- */
@@ -1316,10 +1318,10 @@
                         var adown = a.nodeType === 9 ? a.documentElement : a,
                             bup = b && b.parentNode;
                         return a === bup || !!( bup && bup.nodeType === 1 && (
-                                adown.contains ?
-                                    adown.contains(bup) :
-                                    a.compareDocumentPosition && a.compareDocumentPosition(bup) & 16
-                            ));
+                            adown.contains ?
+                                adown.contains(bup) :
+                                a.compareDocumentPosition && a.compareDocumentPosition(bup) & 16
+                        ));
                     } :
                     function (a, b) {
                         if (b) {
@@ -2098,7 +2100,7 @@
                     // Filters
                     for (type in Expr.filter) {
                         if ((match = matchExpr[type].exec(soFar)) && (!preFilters[type] ||
-                            (match = preFilters[type](match)))) {
+                                (match = preFilters[type](match)))) {
                             matched = match.shift();
                             tokens.push({
                                 value: matched,
@@ -2341,9 +2343,9 @@
                     }, implicitRelative, true),
                     matchers = [function (elem, context, xml) {
                         var ret = ( !leadingRelative && ( xml || context !== outermostContext ) ) || (
-                                (checkContext = context).nodeType ?
-                                    matchContext(elem, context, xml) :
-                                    matchAnyContext(elem, context, xml) );
+                            (checkContext = context).nodeType ?
+                                matchContext(elem, context, xml) :
+                                matchAnyContext(elem, context, xml) );
                         // Avoid hanging onto element (issue #299)
                         checkContext = null;
                         return ret;
@@ -2367,8 +2369,8 @@
                             return setMatcher(
                                 i > 1 && elementMatcher(matchers),
                                 i > 1 && toSelector(
-                                    // If the preceding token was a descendant combinator, insert an implicit any-element `*`
-                                    tokens.slice(0, i - 1).concat({value: tokens[i - 2].type === " " ? "*" : ""})
+                                // If the preceding token was a descendant combinator, insert an implicit any-element `*`
+                                tokens.slice(0, i - 1).concat({value: tokens[i - 2].type === " " ? "*" : ""})
                                 ).replace(rtrim, "$1"),
                                 matcher,
                                 i < j && matcherFromTokens(tokens.slice(i, j)),
@@ -4047,11 +4049,11 @@
         _queueHooks: function (elem, type) {
             var key = type + "queueHooks";
             return jQuery._data(elem, key) || jQuery._data(elem, key, {
-                    empty: jQuery.Callbacks("once memory").add(function () {
-                        jQuery._removeData(elem, type + "queue");
-                        jQuery._removeData(elem, key);
-                    })
-                });
+                empty: jQuery.Callbacks("once memory").add(function () {
+                    jQuery._removeData(elem, type + "queue");
+                    jQuery._removeData(elem, key);
+                })
+            });
         }
     });
 
@@ -5317,7 +5319,7 @@
     }
 
     var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +
-            "header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
+        "header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
         rinlinejQuery = / jQuery\d+="(?:null|\d+)"/g,
         rnoshimcache = new RegExp("<(?:" + nodeNames + ")[\\s/>]", "i"),
         rleadingWhitespace = /^\s+/,
@@ -5931,7 +5933,7 @@
             // We can't cloneNode fragments that contain checked, in WebKit
             if (isFunction ||
                 ( l > 1 && typeof value === "string" &&
-                !support.checkClone && rchecked.test(value) )) {
+                    !support.checkClone && rchecked.test(value) )) {
                 return this.each(function (index) {
                     var self = set.eq(index);
                     if (isFunction) {
@@ -6554,10 +6556,10 @@
 
     function augmentWidthOrHeight(elem, name, extra, isBorderBox, styles) {
         var i = extra === ( isBorderBox ? "border" : "content" ) ?
-                // If we already have the right measurement, avoid augmentation
-                4 :
-                // Otherwise initialize for horizontal or vertical properties
-                name === "width" ? 1 : 0,
+            // If we already have the right measurement, avoid augmentation
+            4 :
+            // Otherwise initialize for horizontal or vertical properties
+            name === "width" ? 1 : 0,
 
             val = 0;
 
@@ -6624,14 +6626,14 @@
 
         // use the active box-sizing model to add/subtract irrelevant styles
         return ( val +
-                augmentWidthOrHeight(
-                    elem,
-                    name,
-                    extra || ( isBorderBox ? "border" : "content" ),
-                    valueIsBorderBox,
-                    styles
-                )
-            ) + "px";
+            augmentWidthOrHeight(
+                elem,
+                name,
+                extra || ( isBorderBox ? "border" : "content" ),
+                valueIsBorderBox,
+                styles
+            )
+        ) + "px";
     }
 
     jQuery.extend({
@@ -8335,9 +8337,9 @@
                 for (; i < len; i++) {
                     elem = this[i];
                     cur = elem.nodeType === 1 && ( elem.className ?
-                                ( " " + elem.className + " " ).replace(rclass, " ") :
-                                " "
-                        );
+                            ( " " + elem.className + " " ).replace(rclass, " ") :
+                            " "
+                    );
 
                     if (cur) {
                         j = 0;
@@ -8377,9 +8379,9 @@
                     elem = this[i];
                     // This expression is here for better compressibility (see addClass)
                     cur = elem.nodeType === 1 && ( elem.className ?
-                                ( " " + elem.className + " " ).replace(rclass, " ") :
-                                ""
-                        );
+                            ( " " + elem.className + " " ).replace(rclass, " ") :
+                            ""
+                    );
 
                     if (cur) {
                         j = 0;
@@ -8467,8 +8469,8 @@
 
 
     jQuery.each(("blur focus focusin focusout load resize scroll unload click dblclick " +
-    "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-    "change select submit keydown keypress keyup error contextmenu").split(" "), function (i, name) {
+        "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+        "change select submit keydown keypress keyup error contextmenu").split(" "), function (i, name) {
 
         // Handle event binding
         jQuery.fn[name] = function (data, fn) {
@@ -9087,8 +9089,8 @@
                 parts = rurl.exec(s.url.toLowerCase());
                 s.crossDomain = !!( parts &&
                     ( parts[1] !== ajaxLocParts[1] || parts[2] !== ajaxLocParts[2] ||
-                    ( parts[3] || ( parts[1] === "http:" ? "80" : "443" ) ) !==
-                    ( ajaxLocParts[3] || ( ajaxLocParts[1] === "http:" ? "80" : "443" ) ) )
+                        ( parts[3] || ( parts[1] === "http:" ? "80" : "443" ) ) !==
+                        ( ajaxLocParts[3] || ( ajaxLocParts[1] === "http:" ? "80" : "443" ) ) )
                 );
             }
 
@@ -9452,7 +9454,7 @@
         // Opera reports offsetWidths and offsetHeights less than zero on some elements
         return elem.offsetWidth <= 0 && elem.offsetHeight <= 0 ||
             (!support.reliableHiddenOffsets() &&
-            ((elem.style && elem.style.display) || jQuery.css(elem, "display")) === "none");
+                ((elem.style && elem.style.display) || jQuery.css(elem, "display")) === "none");
     };
 
     jQuery.expr.filters.visible = function (elem) {
@@ -9860,9 +9862,9 @@
 
         var callbackName, overwritten, responseContainer,
             jsonProp = s.jsonp !== false && ( rjsonp.test(s.url) ?
-                        "url" :
-                        typeof s.data === "string" && !( s.contentType || "" ).indexOf("application/x-www-form-urlencoded") && rjsonp.test(s.data) && "data"
-                );
+                    "url" :
+                    typeof s.data === "string" && !( s.contentType || "" ).indexOf("application/x-www-form-urlencoded") && rjsonp.test(s.data) && "data"
+            );
 
         // Handle iff the expected data type is "jsonp" or we have a parameter to set
         if (jsonProp || s.dataTypes[0] === "jsonp") {
@@ -10011,8 +10013,8 @@
                     responseText);
 
             }).complete(callback && function (jqXHR, status) {
-                    self.each(callback, response || [jqXHR.responseText, status, jqXHR]);
-                });
+                self.each(callback, response || [jqXHR.responseText, status, jqXHR]);
+            });
         }
 
         return this;

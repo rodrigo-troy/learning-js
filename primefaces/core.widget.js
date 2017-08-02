@@ -1,18 +1,27 @@
+console.log("inicio core.widget.js");
+
 /* Simple JavaScript Inheritance
  * By John Resig http://ejohn.org/
  * MIT Licensed.
  */
 // Inspired by base2 and Prototype
 (function () {
-    var initializing = false, fnTest = /xyz/.test(function () {
-        xyz;
-    }) ? /\b_super\b/ : /.*/;
+    console.log("Inicio Simple JavaScript Inheritance");
+
+    var initializing = false,
+        fnTest = /xyz/.test(function () {
+            xyz;
+        }) ? /\b_super\b/ : /.*/;
     // The base Class implementation (does nothing)
     this.Class = function () {
     };
 
     // Create a new Class that inherits from this class
     Class.extend = function (prop) {
+        console.log("\n\ninicio Class.extend");
+        console.log(prop);
+        console.log(this);
+
         var _super = this.prototype;
 
         // Instantiate a base class (but only create the instance,
@@ -23,26 +32,33 @@
 
         // Copy the properties over onto the new prototype
         for (var name in prop) {
+            /*console.log(name);*/
             // Check if we're overwriting an existing function
-            prototype[name] = typeof prop[name] == "function" &&
-            typeof _super[name] == "function" && fnTest.test(prop[name]) ?
-                (function (name, fn) {
-                    return function () {
-                        var tmp = this._super;
 
-                        // Add a new ._super() method that is the same method
-                        // but on the super-class
-                        this._super = _super[name];
+            var condicion = typeof prop[name] == "function" && typeof _super[name] == "function" && fnTest.test(prop[name]);
 
-                        // The method only need to be bound temporarily, so we
-                        // remove it when we're done executing
-                        var ret = fn.apply(this, arguments);
-                        this._super = tmp;
 
-                        return ret;
-                    };
-                })(name, prop[name]) :
-                prop[name];
+            var f = (function (name, fn) {
+                console.log("en f");
+                console.log(name);
+                console.log(fn);
+                return function () {
+                    var tmp = this._super;
+
+                    // Add a new ._super() method that is the same method
+                    // but on the super-class
+                    this._super = _super[name];
+
+                    // The method only need to be bound temporarily, so we
+                    // remove it when we're done executing
+                    var ret = fn.apply(this, arguments);
+                    this._super = tmp;
+
+                    return ret;
+                };
+            });
+
+            prototype[name] = condicion ? f(name, prop[name]) : prop[name];
         }
 
         // The dummy class constructor
@@ -73,6 +89,7 @@ PrimeFaces.widget = {};
 PrimeFaces.widget.BaseWidget = Class.extend({
 
     init: function (cfg) {
+        console.log("inicio PrimeFaces.widget.BaseWidget.init");
         this.cfg = cfg;
         this.id = cfg.id;
         this.jqId = PrimeFaces.escapeClientId(this.id);
@@ -92,6 +109,7 @@ PrimeFaces.widget.BaseWidget = Class.extend({
 
     //used in ajax updates, reloads the widget configuration
     refresh: function (cfg) {
+        console.log("inicioPrimeFaces.widget.BaseWidget.refresh");
         return this.init(cfg);
     },
 

@@ -1,3 +1,5 @@
+console.log("inicio core.js");
+
 (function (window) {
 
     if (window.PrimeFaces) {
@@ -6,7 +8,6 @@
     }
 
     var PrimeFaces = {
-
         escapeClientId: function (id) {
             return "#" + id.replace(/:/g, "\\:");
         },
@@ -648,7 +649,6 @@
      * Locales
      */
     PrimeFaces.locales = {
-
         'en_US': {
             closeText: 'Close',
             prevText: 'Previous',
@@ -682,12 +682,14 @@
                 'columntoggler.CLOSE': 'Close'
             }
         }
-
     };
 
     PrimeFaces.locales['en'] = PrimeFaces.locales['en_US'];
 
     PF = function (widgetVar) {
+        console.log("en core.js");
+        console.log(widgetVar);
+
         var widgetInstance = PrimeFaces.widgets[widgetVar];
 
         if (!widgetInstance) {
@@ -699,5 +701,4 @@
 
     //expose globally
     window.PrimeFaces = PrimeFaces;
-
 })(window);

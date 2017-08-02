@@ -1,3 +1,5 @@
+console.log("inicio core.env.js");
+
 PrimeFaces.env = {
 
     mobile: false,
