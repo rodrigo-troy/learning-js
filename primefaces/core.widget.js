@@ -18,25 +18,36 @@ console.log("inicio core.widget.js");
 
     // Create a new Class that inherits from this class
     Class.extend = function (prop) {
-        console.log("\n\ninicio Class.extend");
-        console.log(prop);
+        console.log("\n\n\ninicio Class.extend");
+
+        console.log("this:");
         console.log(this);
+        console.log("prop:");
+        console.log(prop);
 
         var _super = this.prototype;
+
+        console.log("this.prototype:");
+        console.log(this.prototype);
 
         // Instantiate a base class (but only create the instance,
         // don't run the init constructor)
         initializing = true;
         var prototype = new this();
+        console.log("var prototype:");
+        console.log(prototype);
+
         initializing = false;
 
         // Copy the properties over onto the new prototype
+        /* console.log("inicio loop");*/
         for (var name in prop) {
-            /*console.log(name);*/
+            /*console.log(name);
+            console.log(typeof prop[name]);*/
             // Check if we're overwriting an existing function
 
             var condicion = typeof prop[name] == "function" && typeof _super[name] == "function" && fnTest.test(prop[name]);
-
+            /* console.log(condicion);*/
 
             var f = (function (name, fn) {
                 console.log("en f");
@@ -63,6 +74,7 @@ console.log("inicio core.widget.js");
 
         // The dummy class constructor
         function Class() {
+            console.log('dummy constructor');
             // All construction is actually done in the init method
             if (!initializing && this.init)
                 this.init.apply(this, arguments);
