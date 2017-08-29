@@ -13,7 +13,7 @@ var myObject = (function () {
         getValue: function () {
             return value;
         }
-    }
+    };
 })();
 
 console.log("We are not assigning a function to 'myObject'. We are assigning the result of invoking that function.");
