@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en">
+<head>
+    <title>Web app lifecycle</title>
+    <style type="text/css">
+        #first {
+            color: green;
+        }
+
+        #second {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<ul id="first"></ul>
+<script type="text/javascript">
+    function addMessage(element, message) {
+        var messageElement = document.createElement("li");
+        messageElement.textContent = message;
+        element.appendChild(messageElement);
+    }
+
+    var first = document.getElementById("first");
+    addMessage(first, "page loading");
+</script>
+
+<ul id="second"></ul>
+
+<script type="text/javascript">
+    document.body.addEventListener("mousemove", function () {
+        var second = document.getElementById("second");
+        addMessage(second, "Event: mousemove");
+    });
+
+    document.body.addEventListener("click", function () {
+        var second = document.getElementById("second");
+        addMessage(second, "Event: click");
+    });
+</script>
+</body>
+</html>
