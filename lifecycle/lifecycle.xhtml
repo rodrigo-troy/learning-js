@@ -18,8 +18,20 @@
     </style>
 </head>
 <body>
-<ul id="first"></ul>
 <script type="text/javascript">
+    window.onload = function () {
+        console.log("DOM ready!");
+    };
+</script>
+
+<ul id="first">
+    <!--Si este "ul" se coloca despues del script que viene a continuación,
+    el script fallará al no encontrar el elemento con id "first"-->
+</ul>
+
+<script type="text/javascript">
+    console.log("INICIO 1ER SCRIPT");
+
     function addMessage(element, message) {
         var messageElement = document.createElement("li");
         messageElement.textContent = message;
@@ -33,6 +45,8 @@
 <ul id="second"></ul>
 
 <script type="text/javascript">
+    console.log("INICIO 2DO SCRIPT");
+
     document.body.addEventListener("mousemove", function () {
         var second = document.getElementById("second");
         addMessage(second, "Event: mousemove");
