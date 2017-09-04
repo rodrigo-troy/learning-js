@@ -17,12 +17,17 @@
             console.log("this = " + this);
             this.clicked = true;
             assert(button.clicked, "The button has been clicked");
+            assert(button === this, "button = this");
+            assert(elem === this, "elem = this");
         }
     }
 
     var button = new Button();
     var elem = document.getElementById("test");
     elem.addEventListener("click", button.click);
+
+    button.click();
+    button.clicked = false;
 </script>
 
 
