@@ -10,28 +10,33 @@
 </head>
 <body>
 <script>
-    function whatsMyContext() {
+    var i = 0;  //SOLO COMO REFERENCIA PARA SEGUIR EL FLUJO POR CONSOLA
+
+    function whatsMyContext() { //Returns the function context that will allow us to examine the context from outside
+        i++;
         console.log("context = " + this);
+        console.log("i = " + i);
         return this;
     }
 
-    assert(whatsMyContext() === window, "Function call on window");
+    assert(whatsMyContext() === window, "Function call on window"); //Invoking as a function sets the context to the window object.
 
-    var getMyThis = whatsMyContext;
+    var getMyThis = whatsMyContext; //getMyThis gets a reference to the whatsMyContext function.
+                                    //This doesn’t create a second instance of the function; it merely creates a reference to the same function
 
-    assert(getMyThis() === window, "Another function call in window");
+    assert(getMyThis() === window, "Another function call in window");  //Invokes the function using the getMyThis variable. Even though we use a variable, the function is still invoked as a function, and the function context is the window object.
 
-    var ninja1 = {
+    var ninja1 = {                  //A ninja1 object is created with a getMyThis property that references the whatsMyContext function.
+        getMyThis: whatsMyContext   //By doing so, we say that we’ve created a method named getMyThis on the object
+    };                              //We don’t say that whatsMyContext has become a method of ninja1; it hasn’t
+
+    assert(ninja1.getMyThis() === ninja1, "Working with 1st ninja"); //Invoking the functions through getMyThis calls it as a method of ninja1. The function context is now ninja1. That’s object orientation!
+
+    var ninja2 = { //Another object, ninja2, also has a getMyThis property referencing whatsMyContext.
         getMyThis: whatsMyContext
     };
 
-    assert(ninja1.getMyThis() === ninja1, "Working with 1st ninja");
-
-    var ninja2 = {
-        getMyThis: whatsMyContext
-    };
-
-    assert(ninja2.getMyThis() === ninja2, "Working with 2nd ninja");
+    assert(ninja2.getMyThis() === ninja2, "Working with 2nd ninja"); //Invoking the function as a method of ninja2 shows that the function context is now ninja2.
 </script>
 <p>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4 - The differences between function
