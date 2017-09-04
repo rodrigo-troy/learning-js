@@ -1,4 +1,3 @@
-
 (function () {
     var a = 1;
     console.log("Esto es una Immediately-Invoked Function Expression");
@@ -26,3 +25,18 @@ $(function () {
 
     console.log(this.a2 === document.a2);
 });
+
+
++function () {
+    console.log("+");
+}();
+
+-function () {
+    console.log("-");
+}();
+!function () {
+    console.log("!");
+}();
+~function () {
+    console.log("~");
+}();
