@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binding a specific context to a function</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function Boton() {
+        this.clicked = false;
+        this.click = function () {
+            console.log("this = " + this);
+            console.log("(boton1 === this) " + (this === boton1));
+            this.clicked = true;
+        }
+    }
+
+    var boton1 = new Boton();
+    boton1.click();
+
+</script>
+
+</body>
+</html>
