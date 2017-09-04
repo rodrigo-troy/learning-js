@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Illustrating the difference between function and method invocations</title>
+    <title>Illustrating the difference between function, method invocations and constructor invocation</title>
     <meta charset="utf-8">
     <script src="assert.js"></script>
     <link rel="stylesheet"
@@ -37,6 +37,8 @@
     };
 
     assert(ninja2.getMyThis() === ninja2, "Working with 2nd ninja"); //Invoking the function as a method of ninja2 shows that the function context is now ninja2.
+
+    var myConstructorInvocation = new whatsMyContext();
 </script>
 <p>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4 - The differences between function
