@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binding a specific context to a function</title>
+    <meta charset="utf-8">
+    <script src="assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="assert.css">
+</head>
+<body>
+<button id="test">Click Me!</button>
+<script>
+    function Button() {
+        this.clicked = false;
+        this.click = function () {
+            console.log("this = " + this);
+            this.clicked = true;
+            assert(button.clicked, "The button has been clicked");
+        }
+    }
+
+    var button = new Button();
+    var elem = document.getElementById("test");
+    elem.addEventListener("click", button.click);
+</script>
+
+
+<button id="test2">Click Me 2!</button>
+
+<script>
+    function Button2() {
+        var that = this;
+        this.clicked = false;
+        this.click = function () {
+            console.log("this = " + this);
+            that.clicked = true;
+            assert(button2.clicked, "The button has been clicked");
+        }
+    }
+
+    var button2 = new Button2();
+    var elem2 = document.getElementById("test2");
+    test2.addEventListener("click", button2.click);
+</script>
+
+</body>
+</html>
