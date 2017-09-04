@@ -10,18 +10,47 @@
 </head>
 <body>
 <script type="text/javascript">
-    function Ninja() {
+    function Ninja() {                          //A constructor that creates a skulk property on whatever object is the function context.
+        this.saludo = "hola";                   //The method once again returns the function context so that we can test it externally.
+
         this.skulk = function () {
             console.log("this = " + this);
             return this;
         };
     }
 
+    //Creates two objects by invoking the constructor with new. The newly created objects are referenced by ninja1 and ninja2.
     var ninja1 = new Ninja();
     var ninja2 = new Ninja();
 
+    console.log(ninja1.saludo);
+
+    //Tests the skulk method of the constructed objects. Each should return its own constructed object.
     assert(ninja1.skulk() === ninja1, "The 1st ninja is skulking");
     assert(ninja2.skulk() === ninja2, "The 2nd ninja is skulking");
 </script>
+<p>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.2.3 - Invocation as a constructor
+</p>
+
+<p>
+    In this example, we create a function named Ninja that we’ll use to construct, well, ninjas. When invoked with the
+    keyword <b>new</b>, an empty object instance is created and passed to the function as its function context, the this
+    parameter. The constructor creates a property named skulk on this object, which is assigned a function, making that
+    function a method of the newly created object.
+</p>
+<p>
+    In general, when a constructor is invoked, a couple of special actions take place Calling a function with the
+    keyword new triggers the following steps:
+</p>
+
+<ol>
+    <li>A new empty object is created.</li>
+    <li>This object is passed to the constructor as the this parameter, and thus becomes the constructor’s function
+        context.
+    </li>
+    <li>The newly constructed object is returned as the new operator’s value.
+    </li>
+</ol>
 </body>
 </html>
