@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using arrow functions to work around callback function contexts</title>
+    <meta charset="utf-8">
+    <script src="assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="assert.css">
+</head>
+<body>
+<button id="test">Click Me!</button>
+<script>
+    function Button() {
+        console.log("iniciando button con this = " + this);
+
+        this.clicked = false;
+        this.click = () => {               //Declares the arrow function that we’ll use as the click handler. Because it’s a method of the object, we use this within the function to get a reference to the object.
+            console.log("this = " + this);
+            this.clicked = true;
+            assert(button.clicked, "The button has been clicked");
+            assert(button === this, "button === this");
+        }
+    }
+
+    var button = new Button();
+    var elem = document.getElementById("test");
+    elem.addEventListener("click", button.click);
+</script>
+<p>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.3.1 - Using arrow functions to get
+    around function contexts
+    call methods
+</p>
+<p>Arrow functions don’t have their own this value. Instead, they remember the value of the this parameter at the time
+    of their definition</p>
+<p>In our case, the click arrow function was created inside a constructor function, where the this parameter is the
+    newly constructed object, so whenever we (or the browser) call the click function, the value of the this parameter
+    will always be bound to the newly constructed button object.</p>
+</body>
+</html>
