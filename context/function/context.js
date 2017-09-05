@@ -34,12 +34,6 @@ console.log("Como la función esta vinculada al objeto 'unObject', 'this' devuel
 console.log("\nAunque le puedo pasar el context usando 'call':");
 unObject.unaFuncion.call(window);
 
-
-var myClick = function () {
-    console.log("\n¿En un evento?");
-    console.log(this);
-};
-
 console.log("\n¿Y en un metodo definido dentro de otro metodo?");
 var otroObjeto = {
     a: 1,
