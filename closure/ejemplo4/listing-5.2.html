@@ -47,5 +47,13 @@
     the function definition as well as all variables in scope at the point of function
     definition. When innerFunction eventually executes, even if it’s executed after the scope in which it was declared
     goes away, it has access to the original scope in which it was declared through its closure</p>
+
+<p>
+    That’s what closures are all about. They create a "safety bubble" of the function and the variables in scope at the
+    point of the function’s definition, so that the function has all it needs to execute. This bubble, containing the
+    function and its variables, stays around as long as the function does.
+</p>
+<img src="bubble.png"/>
+
 </body>
 </html>

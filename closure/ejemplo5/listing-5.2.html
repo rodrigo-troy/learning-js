@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo 5 - Closure</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<script>
+    function funcionPadre() {
+        var label = "Soy la función Nº";
+
+        function funcionHija1() {
+            console.log(getLabel("1"));
+        }
+
+        function funcionHija2() {
+            console.log(getLabel("2"));
+        }
+
+        function funcionHija3() {
+            console.log(getLabel("3"));
+        }
+
+        function getLabel(numero) {
+            return label + numero;
+        }
+
+        funcionHija1();
+        funcionHija2();
+        funcionHija3();
+    }
+
+    funcionPadre();
+</script>
+<p>
+
+</p>
+
+</body>
+</html>
