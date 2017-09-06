@@ -20,8 +20,7 @@
 
         function innerFunction() {
             var veryInnerValue = "ronin";
-            console.log("innerFunction: innerValue = " + innerValue);
-            console.log("innerFunction: outerValue = " + outerValue);
+
             assert(outerValue === "samurai", "I can see the samurai.");
             assert(innerValue === "ninja", "I can see the ninja.");
 
@@ -30,13 +29,7 @@
                 console.log("veryInnerFunction: innerValue  = " + innerValue);
                 console.log("veryInnerFunction: outerValue = " + outerValue);
             }
-
-            veryInnerFunction();
         }
-
-        //console.log("outerFunction: veryInnerValue  = " + veryInnerValue);  NO PUEDE VER ESTA VARIABLE
-        console.log("outerFunction: innerValue  = " + innerValue);
-        console.log("outerFunction: outerValue = " + outerValue);
 
         later = innerFunction; //Stores a reference to innerFunction in the later variable. Because later is in the global scope, it’ll allow us to call the function later.
     }

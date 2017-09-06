@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using closures to approximate private variable</title>
+    <meta charset="utf-8">
+    <script src="assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="assert.css">
+</head>
+
+<body>
+<script>
+    //Defines the constructor for a Ninja
+    function Ninja() {
+        //Declares a variable inside the constructor function.
+        //Because the scope of the variable is limited to inside the constructor, it’s a “private” variable. 
+        //We’ll use it to count how many times the ninja has feinted.
+        var feints = 0;
+
+        //Creates an accessor method for the feints counter.
+        //Because the variable isn’t accessible to code outside the constructor,
+        //this is a common way to give read-only access to the value.
+        this.getFeints = function () {
+            console.log("feints = " + feints);
+            return feints;
+        };
+
+        //Declares the increment method for the value.
+        //Because the value is private, no one can screw it up behind our backs;
+        //they’re limited to the access that we give them via methods.
+        this.feint = function () {
+            console.log("feints++");
+            feints++;
+        };
+    }
+
+    var ninja1 = new Ninja();
+    ninja1.feint();
+    ninja1.feint();
+
+    assert(ninja1.feints === undefined, "And the private data is inaccessible to us.");
+    assert(ninja1.getFeints() === 2, "We're able to access the internal feint count.");
+
+    var ninja2 = new Ninja();
+    assert(ninja2.getFeints() === 0, "The second ninja object gets it’s own feints variable.");
+</script>
+
+<p>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - Chapter 5.2.1 - Mimicking private variables
+</p>
+</body>
+</html>
