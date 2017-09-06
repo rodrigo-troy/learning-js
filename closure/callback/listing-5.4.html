@@ -33,13 +33,13 @@
 <div id="box1">First Box</div>
 <div id="box2">Second Box</div>
 <script>
-    function animateIt(elementId) {
+    function animateIt(elementId, step) {
         var elem = document.getElementById(elementId);   //Inside the animateIt function, we get a reference to that element.
         var tick = 0;
         var timer = setInterval(function () {
             if (tick < 100) {
                 elem.style.left = elem.style.top = tick + "px";
-                tick++;
+                tick = tick + step;
             } else {
                 clearInterval(timer);
                 assert(tick === 100, "Tick accessed via a closure.");
@@ -49,8 +49,8 @@
         }, 10);
     }
 
-    animateIt("box1");
-    animateIt("box2");
+    animateIt("box1", 1);
+    animateIt("box2", 3);
 </script>
 <p>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 5.2.2 - Using closures with
