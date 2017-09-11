@@ -14,6 +14,7 @@
 <script>
     var outerValue = "samurai";
     var later;
+    var later2;
 
     function outerFunction() {
         var innerValue = "ninja";
@@ -21,14 +22,16 @@
         function innerFunction() {
             var veryInnerValue = "ronin";
 
-            assert(outerValue === "samurai", "I can see the samurai.");
-            assert(innerValue === "ninja", "I can see the ninja.");
+            assert(outerValue === "samurai", "innerFunction: I can see the samurai.");
+            assert(innerValue === "ninja", "innerFunction: I can see the ninja.");
 
             function veryInnerFunction() {
-                console.log("veryInnerFunction: veryInnerValue  = " + veryInnerValue);
-                console.log("veryInnerFunction: innerValue  = " + innerValue);
-                console.log("veryInnerFunction: outerValue = " + outerValue);
+                assert(outerValue === "samurai", "veryInnerFunction: I can see the samurai.");
+                assert(innerValue === "ninja", "veryInnerFunction: I can see the ninja.");
+                assert(veryInnerValue === "ronin", "veryInnerFunction: I can see the ronin.");
             }
+
+            later2 = veryInnerFunction;
         }
 
         later = innerFunction; //Stores a reference to innerFunction in the later variable. Because later is in the global scope, it’ll allow us to call the function later.
@@ -38,6 +41,10 @@
 
     if (later) {
         later();    //Invokes innerFunction through later. We can’t invoke it directly because its scope (along with innerValue) is limited to within outerFunction.
+    }
+
+    if (later2) {
+        later2();
     }
 </script>
 <p>
