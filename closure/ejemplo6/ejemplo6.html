@@ -17,8 +17,12 @@
             var reportNum = 3;
 
             for (var i = 0; i < reportNum; i++) {
+                var meVes = " si ";
+
                 console.log(ninja + " " + action + " " + i)
             }
+
+            console.log(i + meVes); //variables declared with the keyword var are always registered in the closest function or global lexical environment, without paying any attention to blocks
         }
 
         report();
