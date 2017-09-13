@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo 5 - Closure</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<script>
+    var ninja = "Muneyoshi";
+
+    function skulk() {
+        var action = "skulking";
+
+        function report() {
+            var reportNum = 3;
+
+            for (var i = 0; i < reportNum; i++) {
+                console.log(ninja + " " + action + " " + i)
+            }
+        }
+
+        report();
+    }
+
+    function report() {
+        var reportNum = 3;
+    }
+
+    skulk();
+
+</script>
+
+<p>
+<ul>
+    <li>the for loop can access variables from the report function, the skulk function, and the global code</li>
+    <li>the report function can access variables from the skulk function and the global code</li>
+    <li>the skulk function can access only additional variables from the global code</li>
+</ul>
+</p>
+
+</body>
+</html>
