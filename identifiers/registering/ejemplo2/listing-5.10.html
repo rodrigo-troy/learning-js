@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Overriding function identifiers</title>
+    <meta charset="utf-8">
+    <script src="assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="assert.css">
+</head>
+<body>
+<script>
+    assert(typeof fun === "function", "We access the function");
+
+    var fun = 3;
+
+    assert(typeof fun === "number", "Now we access the number");
+
+    function fun() {
+    }
+
+    assert(typeof fun === "number", "Still a number");
+</script>
+
+<p>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 5.5.3 - Registering identifiers
+    within lexical environments
+</p>
+
+<p>
+    In this example, a variable declaration and a function declaration have the same name: fun. If you run this code,
+    you’ll see that both asserts pass. In the first assert, the identifier fun refers to a function; and in the second
+    and third, fun refers to a number.
+</p>
+<p>
+    This behavior follows as a direct consequence of the steps taken when registering identifiers. In the second step of
+    the outlined process, functions defined with function declarations are created and associated to their identifiers
+    before any code is evaluated; and in the third step, variable declarations are processed, and the value undefined is
+    associated to identifiers that haven’t yet been encountered in the current environment.
+</p>
+<p>
+    In this case, because the identifier fun has been encountered in the second step when function declarations are
+    registered, the value undefined isn’t assigned to the variable fun. This is why the first assertion, testing
+    whether fun is a function, passes. After that, we have an assignment statement, var fun = 3, which assigns the
+    number 3 to the identifier fun. By doing this, we lose the reference to the function, and from then on, the
+    identifier fun refers to a number.
+</p>
+</body>
+</html>
