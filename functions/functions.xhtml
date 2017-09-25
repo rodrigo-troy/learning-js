@@ -37,6 +37,14 @@
                     <li>
                         When a function is stored as a property of a object, it's called <b>method</b>.
                     </li>
+                    <li>When we invoke a function as a method of an object, that object becomes the function context and
+                        is available within the function via the <b>this</b> parameter.
+                        <p>
+                            var ninja = {};<br/>
+                            ninja.skulk = function(){};<br/>
+                            ninja.skulk();<br/>
+                        </p>
+                    </li>
                 </ul>
             </li>
             <li>The function invocation pattern</li>
