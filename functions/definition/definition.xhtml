@@ -9,11 +9,14 @@
     <title>Defining functions</title>
     <link rel="stylesheet"
           type="text/css"
-          href="definition.css"/>
+          href="../../core.css"/>
 </head>
 <body>
 
-<h2>JavaScript provides a couple of ways to define functions, which can be divided into four groups:</h2>
+<p class="comment">The way in which a function is defined significantly influences when the function is available to be
+    invoked and how it behaves, as well as on which object the function can be invoked.</p>
+
+<h2>JavaScript provides a couple of ways to define functions:</h2>
 <ul>
     <li>Function declarations:
         <ul>
@@ -24,7 +27,7 @@
                 and a closing brace.
             </li>
             <li>A function declaration must be placed on its own, as a separate JavaScript statement.</li>
-            <li>Ejemplo:
+            <li>Examples:
                 <ul>
                     <li>function myFun(){ return 1;}</li>
                 </ul>
@@ -43,7 +46,7 @@
             <li>
                 For function expressions, the function name is it’s completely optional.
             </li>
-            <li>Ejemplo:
+            <li>Examples:
                 <ul>
                     <li>var a = function() {};</li>
                     <li>myFunction(function(){});</li>
@@ -51,9 +54,40 @@
             </li>
         </ul>
     </li>
-    <li>The function invocation pattern</li>
-    <li>The constructor invocation pattern</li>
-    <li>The apply invocation pattern</li>
+    <li>Arrow function
+        <ul>
+            <li>Often called lambda functions</li>
+            <li>Examples:
+                <ul>
+                    <li>myArg => myArg*2</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Function constructors
+        <ul>
+            <li>Enables us to dynamically construct a new function from a string that can also be dynamically
+                generated.
+            </li>
+            <li>Examples:
+                <ul>
+                    <li>new Function('a', 'b', 'return a + b')</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Generator functions
+        <ul>
+            <li>Enable us to create functions that, unlike normal functions, can be exited and reentered later in the
+                application execution, while keeping the values of their variables across these re-entrances.
+            </li>
+            <li>Examples:
+                <ul>
+                    <li>function* myGen(){yield 1;}</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 
 </body>
