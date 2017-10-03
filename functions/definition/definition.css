@@ -1,0 +1,34 @@
+
+h2 {
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+ul {
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+ul:last-child {
+    border-bottom: none;
+}
+
+li:last-child {
+    border: none;
+}
+
+li {
+    font: 200 18px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    display: block;
+
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+li:hover {
+    font-size: 24px;
+    background: #f6f6f6;
+}
