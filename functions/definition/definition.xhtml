@@ -18,15 +18,39 @@
     <li>Function declarations:
         <ul>
             <li>Every function declaration starts with a mandatory function keyword, followed by a mandatory function
-                name and a list of optional comma-separated parameter names enclosed within mandatory parentheses
+                name and a list of optional comma-separated parameter names enclosed within mandatory parentheses,
             </li>
             <li>The function body, which is a potentially empty list of statements, must be enclosed within an opening
                 and a closing brace.
             </li>
             <li>A function declaration must be placed on its own, as a separate JavaScript statement.</li>
+            <li>Ejemplo:
+                <ul>
+                    <li>function myFun(){ return 1;}</li>
+                </ul>
+            </li>
         </ul>
     </li>
-    <li>Function expressions:</li>
+    <li>Function expressions:
+        <ul>
+            <li>They can be created via literals, assigned to variables and properties, and used as arguments and return
+                values to and from other functions. Because functions are such fundamental constructs, JavaScript
+                enables us to treat them as any other expressions.
+            </li>
+            <li>Functions that are always a part of another statement (for example, as the right side of an assignment
+                expression, or as an argument to another function) are called function expressions.
+            </li>
+            <li>
+                For function expressions, the function name is it’s completely optional.
+            </li>
+            <li>Ejemplo:
+                <ul>
+                    <li>var a = function() {};</li>
+                    <li>myFunction(function(){});</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
     <li>The function invocation pattern</li>
     <li>The constructor invocation pattern</li>
     <li>The apply invocation pattern</li>
