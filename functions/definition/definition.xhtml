@@ -23,10 +23,14 @@
             <li>Every function declaration starts with a mandatory function keyword, followed by a mandatory function
                 name and a list of optional comma-separated parameter names enclosed within mandatory parentheses,
             </li>
+            <li>The function name is mandatory.</li>
             <li>The function body, which is a potentially empty list of statements, must be enclosed within an opening
                 and a closing brace.
             </li>
-            <li>A function declaration must be placed on its own, as a separate JavaScript statement.</li>
+            <li>Function declarations must have a name defined because they stand on their own. Because one of the basic
+                requirements for a function is that it has to be invokable, we have to have a way to reference it, and
+                the only way to do this is through its name.
+            </li>
             <li>Examples:
                 <ul>
                     <li>function myFun(){ return 1;}</li>
@@ -56,7 +60,11 @@
     </li>
     <li>Arrow function
         <ul>
-            <li>Often called lambda functions</li>
+            <li><img src="arrow.png"
+                     alt=""/></li>
+            <li>Often called lambda functions.</li>
+            <li>Are a simplification of function expressions.</li>
+            <li>The arrow function definition starts with an optional comma-separated list of parameter names.</li>
             <li>Examples:
                 <ul>
                     <li>myArg => myArg*2</li>
