@@ -19,14 +19,16 @@
 <script type="text/javascript"
         src="js/functionInvocation.js"></script>
 
-<h2>The are 4 patterns of invocation in javascripts: </h2>
+<h2>The are 4 patterns of <a target="_blank"
+                             href="../../context/invocations/listing-4.6.html">invocation</a> in javascripts:</h2>
 <ul>
     <li>The method invocation pattern:
         <ul>
             <li>
                 When a function is stored as a property of a object, it's called <b>method</b>.
             </li>
-            <li>When we invoke a function as a method of an object, that object becomes the function context and
+            <li>When we invoke a function as a method of an object,
+                <span style="color: red;">that object becomes the function context</span> and
                 is available within the function via the <b>this</b> parameter.
                 <p>
                     var ninja = {};<br/>
@@ -36,7 +38,19 @@
             </li>
         </ul>
     </li>
-    <li>The function invocation pattern</li>
+    <li>The function invocation pattern
+        <ul>
+            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things: In
+                nonstrict mode, it will be the global context (the window object), whereas in strict mode, it will be
+                undefined.
+            </li>
+            <li>
+                <img src="invoke.png"
+                     alt=""/>
+            </li>
+        </ul>
+    </li>
+
     <li>The constructor invocation pattern</li>
     <li>The apply invocation pattern</li>
 </ul>
