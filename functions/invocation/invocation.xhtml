@@ -22,6 +22,18 @@
 <h2>The are 4 patterns of <a target="_blank"
                              href="../../context/invocations/listing-4.6.html">invocation</a> in javascripts:</h2>
 <ul>
+    <li>The function invocation pattern
+        <ul>
+            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things: In
+                nonstrict mode, it will be the global context (the window object), whereas in strict mode, it will be
+                undefined.
+            </li>
+            <li>
+                <img src="invoke.png"
+                     alt=""/>
+            </li>
+        </ul>
+    </li>
     <li>The method invocation pattern:
         <ul>
             <li>
@@ -35,18 +47,6 @@
                     ninja.skulk = function(){};<br/>
                     ninja.skulk();<br/>
                 </p>
-            </li>
-        </ul>
-    </li>
-    <li>The function invocation pattern
-        <ul>
-            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things: In
-                nonstrict mode, it will be the global context (the window object), whereas in strict mode, it will be
-                undefined.
-            </li>
-            <li>
-                <img src="invoke.png"
-                     alt=""/>
             </li>
         </ul>
     </li>

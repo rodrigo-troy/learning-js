@@ -16,6 +16,21 @@
 <ul>
     <li>Functions
         <ul>
+            <li>
+                Functions are first-class objects that are treated just like any other objects within JavaScript.
+                Similar to any other object type, they can be:
+                <ul>
+                    <li>Created via literals</li>
+                    <li>Assigned to variables or properties</li>
+                    <li>Passed as parameters</li>
+                    <li>Returned as function results</li>
+                    <li>Assigned properties and methods</li>
+                </ul>
+            </li>
+            <li>
+                Callback functions are functions that other code will later “call back,” and are often used, especially
+                with event handling.
+            </li>
             <li>There is no runtime error when the number of arguments and the number of parameters don't match.</li>
             <li>If more arguments are supplied than there are parameters, the “excess” arguments aren’t assigned to
                 parameter names.
@@ -27,12 +42,12 @@
                 </ul>
             </li>
             <li>
-                The <b>"this"</b> parameter represents the function context, the object on which our function is
-                invoked, whereas the arguments parameter represents all arguments that are passed in through a function
-                call.
+                The <b>"this"</b> parameter represents <span style="color: red;">the function context, the object on which our function is
+                invoked</span>, whereas the arguments parameter represents all arguments that are passed in through a
+                function call.
             </li>
             <li>The way in which a function is <a href="../definition/definition.xhtml">defined</a> significantly
-                influences when the function is available to be <a href="../invocation/invocation.xhtml">invokes</a> and
+                influences when the function is available to be <a href="../invocation/invocation.xhtml">invoked</a> and
                 how it behaves, as well as on which <a href="../../objects/objects.xhtml">object</a> the function can be
                 invoked.
             </li>
