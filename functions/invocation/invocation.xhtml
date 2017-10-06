@@ -19,14 +19,29 @@
 <script type="text/javascript"
         src="js/functionInvocation.js"></script>
 
+<p class="comment">
+    When a function is invoked, in addition to the parameters that represent the explicit arguments provided in the
+    function call, an implicit parameter named <b>this</b> is passed to the function. The <b>this</b> parameter, refers
+    to an
+    object that’s associated with the function invocation.
+</p>
+
+<p class="comment">
+    the manner in which a function is invoked has a huge impact on how the code within it operates, primarily in how the
+    <b>this</b> parameter, the function context, is established.
+</p>
+
 <h2>The are 4 patterns of <a target="_blank"
                              href="../../context/invocations/listing-4.6.html">invocation</a> in javascripts:</h2>
 <ul>
     <li>The function invocation pattern
         <ul>
-            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things: In
+            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things:
+                ctor, we precede the function invocation with the keyword new
+            </li>
+            <li>When invoked with the keyword new, <span style="color: red;">In
                 nonstrict mode, it will be the global context (the window object), whereas in strict mode, it will be
-                undefined.
+                undefined</span>.
             </li>
             <li>
                 <img src="invoke.png"
@@ -51,8 +66,32 @@
         </ul>
     </li>
 
-    <li>The constructor invocation pattern</li>
-    <li>The apply invocation pattern</li>
+    <li>The constructor invocation pattern
+        <ul>
+            <li>To invoke the function as a constructor, we precede the function invocation with the keyword new</li>
+            <li>When invoked with the keyword new, <span style="color: red;">an empty object instance is created and passed to the function as its
+                function context</span>, the <b>this</b> parameter.
+            </li>
+            <li>The purpose of a constructor is to cause a new object to be created, to set it up, and to return it as
+                the constructor value.
+            </li>
+            <li>
+                If the constructor returns an object, that object is returned as the value of the whole new expression,
+                and the newly constructed object passed as this to the constructor is discarded
+            </li>
+            <li>Ejemplo:<br/>
+                <img src="constructor2.png"
+                     alt=""/>
+                <img src="constructor1.png"
+                     alt=""/>
+            </li>
+        </ul>
+    </li>
+    <li>The apply invocation pattern
+        <ul>
+            <li></li>
+        </ul>
+    </li>
 </ul>
 
 </body>
