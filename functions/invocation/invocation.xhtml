@@ -22,8 +22,7 @@
 <p class="comment">
     When a function is invoked, in addition to the parameters that represent the explicit arguments provided in the
     function call, an implicit parameter named <b>this</b> is passed to the function. The <b>this</b> parameter, refers
-    to an
-    object that’s associated with the function invocation.
+    to an object that’s associated with the function invocation.
 </p>
 
 <p class="comment">
@@ -35,16 +34,18 @@
 <ul>
     <li>The function invocation pattern
         <ul>
-            <li>When invoked in this manner, the function context (the value of the this keyword) can be two things:
-                ctor, we precede the function invocation with the keyword new
+            <li>When invoked in this manner, the function context (the value of the this keyword) can be two
+                things:
             </li>
-            <li>When invoked with the keyword new, <span style="color: red;">In
-                nonstrict mode, it will be the global context (the window object), whereas in strict mode, it will be
-                undefined</span>.
+            <li><span style="color: red;">In nonstrict mode: it will be the global context (the window object)</span>.
+            </li>
+            <li><span style="color: red;">In strict mode: it will be undefined</span>.
             </li>
             <li>
-                <img src="invoke.png"
-                     alt=""/>
+                <img alt=""
+                     src="function1.png"/></li>
+            <li><a href="function/listing-4.5.html"
+                   target="_blank">Example</a>
             </li>
         </ul>
     </li>
@@ -78,7 +79,7 @@
             <li>
                 If the constructor returns an object, that object is returned as the value of the whole new expression,
                 and the newly constructed object passed as this to the constructor is discarded. <a target="_blank"
-                                                                                                    href="constructor2/listing-4.7.html">Example</a>
+                                                                                                    href="constructor2/listing-4.9.html">Example</a>
             </li>
         </ul>
     </li>

@@ -11,20 +11,31 @@
 <body>
 <script>
     var puppet = {      //Creates our own object with a known property
-        rules: false
+        rules: false,
+        getMyContext: function () {
+            return this;
+        }
     };
 
     function Emperor() {    //Returns that object despite initializing the object passed as this
-        console.log("this = " + this);
-
         this.rules = true;
+
+        console.log("this = " + this);
+        console.log("this.rules = " + this.rules);
+
+        this.getMyContext = function () { //
+            return this;
+        };
+
         return puppet;
     }
 
     var emperor = new Emperor();  //Invokes the function as a constructor
+    console.log(emperor.getMyContext());
 
     assert(emperor === puppet, "The emperor is merely a puppet!");
     assert(emperor.rules === false, "The puppet does not know how to rule!");
+    assert(emperor.getMyContext() === puppet, "The puppet method was called!");
 </script>
 <h3>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.2.3
@@ -33,7 +44,7 @@
 <ul>
     <li>Invocation as a constructor
         <ul>
-            <li> If the constructor returns an object, that object is returned as the value of the whole new expression,
+            <li>If the constructor returns an object, that object is returned as the value of the whole new expression,
                 and the newly constructed object passed as this to the constructor is discarded.
             </li>
             <li>If, however, a nonobject is returned from the constructor, the returned value is ignored, and the newly

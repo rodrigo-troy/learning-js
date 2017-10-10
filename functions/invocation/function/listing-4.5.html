@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invocation as a function</title>
+    <meta charset="utf-8">
+    <script src="../../../assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../core.css">
+</head>
+<body>
+<script>
+    function ninja() {
+        return this;
+    }
+
+    function samurai() {
+        "use strict";
+        return this;
+    }
+
+    assert(ninja() === window,
+        "In a 'non-strict' ninja function, " +
+        "the context is the global window object");
+
+    assert(samurai() === undefined,
+        "In a 'strict' samurai function, " +
+        "the context is undefined");
+</script>
+<h3>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.2.1- Invocation as a function
+</h3>
+
+<p class="comment">We say that a function is invoked “as a function” to distinguish it from the other invocation
+    mechanisms: methods, constructors, and apply/call. If a function isn’t invoked as a method, as a constructor, or via
+    apply or call, it’s invoked as a function.</p>
+<img src="function2.png"/>
+
+
+</body>
+</html>
