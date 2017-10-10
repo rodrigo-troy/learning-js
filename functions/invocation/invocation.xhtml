@@ -31,8 +31,7 @@
     <b>this</b> parameter, the function context, is established.
 </p>
 
-<h2>The are 4 patterns of <a target="_blank"
-                             href="../../context/invocations/listing-4.6.html">invocation</a> in javascripts:</h2>
+<h2>The are 4 patterns of invocation in javascripts:</h2>
 <ul>
     <li>The function invocation pattern
         <ul>
@@ -66,24 +65,20 @@
         </ul>
     </li>
 
-    <li>The constructor invocation pattern
+    <li>The constructor invocation pattern :
         <ul>
             <li>To invoke the function as a constructor, we precede the function invocation with the keyword new</li>
             <li>When invoked with the keyword new, <span style="color: red;">an empty object instance is created and passed to the function as its
-                function context</span>, the <b>this</b> parameter.
+                function context</span>, the <b>this</b> parameter. <a target="_blank"
+                                                                       href="constructor1/listing-4.7.html">Example</a>
             </li>
             <li>The purpose of a constructor is to cause a new object to be created, to set it up, and to return it as
                 the constructor value.
             </li>
             <li>
                 If the constructor returns an object, that object is returned as the value of the whole new expression,
-                and the newly constructed object passed as this to the constructor is discarded
-            </li>
-            <li>Ejemplo:<br/>
-                <img src="constructor2.png"
-                     alt=""/>
-                <img src="constructor1.png"
-                     alt=""/>
+                and the newly constructed object passed as this to the constructor is discarded. <a target="_blank"
+                                                                                                    href="constructor2/listing-4.7.html">Example</a>
             </li>
         </ul>
     </li>

@@ -3,10 +3,10 @@
 <head>
     <title>Using a constructor to set up common objects</title>
     <meta charset="utf-8">
-    <script src="assert.js"></script>
+    <script src="../../../assert.js"></script>
     <link rel="stylesheet"
           type="text/css"
-          href="assert.css">
+          href="../../../core.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -35,22 +35,26 @@
 
 <p>
     In this example, we create a function named Ninja that we’ll use to construct, well, ninjas.
-    <span style="font-weight: bold;color: coral">When invoked with the keyword <b>new</b>, an empty object instance is created and passed to the function as its function context</span>,
+    <span class="red">When invoked with the keyword <b>new</b>, an empty object instance is created and passed to the function as its function context</span>,
     the "this" parameter. The constructor creates a property named skulk on this object, which is assigned a
     function, making that function a method of the newly created object.
 </p>
-<p>
-    In general, when a constructor is invoked, a couple of special actions take place Calling a function with the
-    keyword new triggers the following steps:
-</p>
 
-<ol>
-    <li>A new empty object is created.</li>
-    <li>This object is passed to the constructor as the this parameter, and thus becomes the constructor’s function
-        context.
+<ul>
+    <li>In general, when a constructor is invoked, a couple of special actions take place Calling a function with the
+        keyword new triggers the following steps:
+        <ul>
+            <li>A new empty object is created.</li>
+            <li>This object is passed to the constructor as the this parameter, and thus becomes the constructor’s
+                function
+                context.
+            </li>
+            <li>The newly constructed object is returned as the new operator’s value.
+            </li>
+        </ul>
     </li>
-    <li>The newly constructed object is returned as the new operator’s value.
-    </li>
-</ol>
+    <li><img src="constructor1.png"/></li>
+    <li><img src="constructor2.png"/></li>
+</ul>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <title>Constructors explicitly returning object values</title>
     <meta charset="utf-8">
-    <script src="assert.js"></script>
+    <script src="../../../assert.js"></script>
     <link rel="stylesheet"
           type="text/css"
-          href="assert.css">
+          href="../../../core.css">
 </head>
 <body>
 <script>
@@ -26,16 +26,21 @@
     assert(emperor === puppet, "The emperor is merely a puppet!");
     assert(emperor.rules === false, "The puppet does not know how to rule!");
 </script>
-<p>
-    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.2.3 - Invocation as a constructor
-</p>
+<h3>
+    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 4.2.3
+</h3>
 
 <ul>
-    <li>If the constructor returns an object, that object is returned as the value of the whole new expression, and the
-        newly constructed object passed as this to the constructor is discarded.
-    </li>
-    <li>If, however, a nonobject is returned from the constructor, the returned value is ignored, and the newly created
-        object is returned.
+    <li>Invocation as a constructor
+        <ul>
+            <li> If the constructor returns an object, that object is returned as the value of the whole new expression,
+                and the newly constructed object passed as this to the constructor is discarded.
+            </li>
+            <li>If, however, a nonobject is returned from the constructor, the returned value is ignored, and the newly
+                created object is returned.
+            </li>
+            <li><img src="constructor.png"></li>
+        </ul>
     </li>
 </ul>
 </body>
