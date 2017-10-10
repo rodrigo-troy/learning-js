@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Context</title>
+    <meta charset="utf-8">
+    <script src="../assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../core.css">
+</head>
+<body>
+<script>
+    var getTheCurrentContext = function () {
+        return this;
+    };
+
+    Door = {
+        myThis: this,
+        color: "brown",
+        width: 10,
+        getMyContext: getTheCurrentContext
+    };
+
+    House = {
+        myThis: this,
+        myDoor: Door,
+        getMyContext: getTheCurrentContext
+    };
+
+    assert(Door.myThis === window, "Door.myThis === window");
+    assert(House.myThis === window, "House.myThis === window");
+    assert(House.myDoor.myThis === window, "House.myDoor.myThis === window");
+    assert(House.getMyContext() === House, "House.getMyContext() === House");
+    assert(House.myDoor.getMyContext() === Door, "House.myDoor.getMyContext() === Door");
+</script>
+<p>
+
+</p>
+
+<ul>
+    <li> Object Context
+        <ul>
+            <li>The binding of <b>this</b> to the object happens at <span class="red">invocation time.</span></li>
+        </ul>
+    </li>
+</ul>
+
+
+</body>
+</html>
