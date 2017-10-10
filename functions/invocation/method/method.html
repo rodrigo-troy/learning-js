@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Method Invocation</title>
+    <meta charset="utf-8">
+    <script src="../../../assert.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../../core.css">
+</head>
+<body>
+<button id="test">Click Me!</button>
+<script>
+    var dog = {
+        that: this,
+        getMyContext: function () {
+            console.log(this);
+            return this;
+        },
+
+        getMyContextFunction: function () {
+            return this.getMyContext;
+        }
+    };
+
+    var dogContext = dog.getMyContextFunction();
+    // console.log((dog.getMyContextFunction())());
+
+    //console.log(dog.that);
+
+    assert(dog.that === dog, "It's a dog");
+    assert(dog.getMyContext() === dog, "It's a dog");
+    /*assert(dogContext() === (dog.getMyContextFunction())(), "dogContext is the window");*/
+</script>
+<p>
+    Method Invocation
+</p>
+
+</body>
+</html>
