@@ -46,6 +46,18 @@
 
 <script type="text/javascript">
     console.log("INICIO 2DO SCRIPT");
+    console.log("DESDE ESTE 2DO SCRIPT TAMBIEN PUEDO ACCEDER A LAS VARIABLES GLOBALES CREADAS EN EL 1ER SCRIPT");
+
+    /* TAMBIEN SE PUEDE ASIGNAR UN EVENTO DE ESTA FORMA
+     document.body.onmousemove = function () {
+         var second = document.getElementById("second");
+         addMessage(second, "Event: mousemove");
+     };
+
+     PERO DESPUES AL ASIGNAR OTRO EVENTO, AL MISMO OBJETO,  EL PRIMERO EVENTO QUEDARIA SOBREEESCRITO Y SE PERDERIA.
+
+     ES POR ESTO QUE ES PREFERIBLE USAR  "addEventListener", EL CUAL NOS PERMITE AGREGAR TANTOS EVENTOS COMO QUERAMOS
+     */
 
     document.body.addEventListener("mousemove", function () {
         var second = document.getElementById("second");
