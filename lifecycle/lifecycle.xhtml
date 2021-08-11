@@ -7,6 +7,7 @@
       lang="en">
 <head>
     <title>Web app lifecycle</title>
+
     <style type="text/css">
         #first {
             color: green;
@@ -18,54 +19,61 @@
     </style>
 </head>
 <body>
-<script type="text/javascript">
-    window.onload = function () {
-        console.log("DOM ready!");
-    };
-</script>
-
-<ul id="first">
-    <!--Si este "ul" se coloca despues del script que viene a continuación,
-    el script fallará al no encontrar el elemento con id "first"-->
-</ul>
+<h1>Has click o doble click</h1>
 
 <script type="text/javascript">
     console.log("INICIO 1ER SCRIPT");
 
+    window.onload = function () {
+        console.log("DOM ready!");
+
+        let first = document.getElementById("first");
+        addMessage(first, "DOM ready");
+    };
+</script>
+
+<ul id="first">
+
+    <!--Si este "ul" se coloca después del script que viene a continuación,
+    el script fallará al no encontrar el elemento con id "first"-->
+</ul>
+
+<script type="text/javascript">
+    console.log("INICIO 2DO SCRIPT");
+
     function addMessage(element, message) {
-        var messageElement = document.createElement("li");
+        let messageElement = document.createElement("li");
         messageElement.textContent = message;
         element.appendChild(messageElement);
     }
 
-    var first = document.getElementById("first");
-    addMessage(first, "page loading");
+    let first = document.getElementById("first");
+    addMessage(first, "Page loading");
 </script>
 
 <ul id="second"></ul>
 
 <script type="text/javascript">
-    console.log("INICIO 2DO SCRIPT");
-    console.log("DESDE ESTE 2DO SCRIPT TAMBIEN PUEDO ACCEDER A LAS VARIABLES GLOBALES CREADAS EN EL 1ER SCRIPT");
+    console.log("INICIO 3ER SCRIPT");
+    console.log("DESDE ESTE 3ER SCRIPT TAMBIÉN PUEDO ACCEDER A LAS VARIABLES GLOBALES CREADAS EN EL 1ER SCRIPT");
 
-    /* TAMBIEN SE PUEDE ASIGNAR UN EVENTO DE ESTA FORMA
+    /* TAMBIÉN SE PUEDE ASIGNAR UN EVENTO DE ESTA FORMA
      document.body.onmousemove = function () {
          var second = document.getElementById("second");
          addMessage(second, "Event: mousemove");
      };
 
-     PERO DESPUES AL ASIGNAR OTRO EVENTO, AL MISMO OBJETO,  EL PRIMERO EVENTO QUEDARIA SOBREEESCRITO Y SE PERDERIA.
-
-     ES POR ESTO QUE ES PREFERIBLE USAR  "addEventListener", EL CUAL NOS PERMITE AGREGAR TANTOS EVENTOS COMO QUERAMOS
+     PERO DESPUÉS AL ASIGNAR OTRO EVENTO, AL MISMO OBJETO, EL PRIMERO EVENTO QUEDARÍA SOBREESCRITO Y SE PERDERÍA.
+     ES POR ESTO QUE ES PREFERIBLE USAR "addEventListener", EL CUAL NOS PERMITE AGREGAR TANTOS EVENTOS COMO QUERAMOS
      */
 
-    document.body.addEventListener("mousemove", function () {
-        var second = document.getElementById("second");
-        addMessage(second, "Event: mousemove");
+    document.body.addEventListener("dblclick", function () {
+        let second = document.getElementById("second");
+        addMessage(second, "Event: dblclick");
     });
 
     document.body.addEventListener("click", function () {
-        var second = document.getElementById("second");
+        let second = document.getElementById("second");
         addMessage(second, "Event: click");
     });
 </script>
