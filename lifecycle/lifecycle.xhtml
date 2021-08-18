@@ -31,16 +31,15 @@
 <script type="text/javascript">
     console.log("INICIO 1ER SCRIPT");
 
-    window.onload = function () {
-        console.log("DOM ready!");
+    window.onload = () => {
+        console.log("Page loaded");
 
         let first = document.getElementById("first");
-        addMessage(first, "DOM ready");
+        addMessage(first, "Page loaded");
     };
 </script>
 
 <ul id="first">
-
     <!--Si este "ul" se coloca después del script que viene a continuación,
     el script fallará al no encontrar el elemento con id "first"-->
 </ul>
@@ -48,6 +47,7 @@
 <script type="text/javascript">
     console.log("INICIO 2DO SCRIPT");
 
+    //Si esta función se colocara en el 3er script, la llamada a esta no funcionaría en este bloque.
     function addMessage(element, message) {
         let messageElement = document.createElement("li");
         messageElement.textContent = message;
