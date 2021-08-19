@@ -21,7 +21,29 @@
                 Similar to any other object type, they can be:
                 <ul>
                     <li>Created via literals</li>
+
+                    <script type="text/javascript">
+                        function unaFuncion() {
+                            console.log("Una función");
+                        }
+
+                        unaFuncion();
+                    </script>
+
                     <li>Assigned to variables or properties</li>
+                    <script type="text/javascript">
+                        var unaFuncion = function () {
+                            console.log("Otra función");
+                        }
+                        unaFuncion();
+                    </script>
+                    <li>Assigned to arrays entries</li>
+                    <script type="text/javascript">
+                        var unaFuncion = function () {
+                            console.log("Una función asignada a un arreglo");
+                        }
+                        unaFuncion();
+                    </script>
                     <li>Passed as parameters</li>
                     <li>Returned as function results</li>
                     <li>Assigned properties and methods</li>
@@ -34,7 +56,7 @@
                 </ul>
             </li>
             <li>
-                The <b>"this"</b> parameter represents <span style="color: red;">the function context, the object on which our function is
+                The <b>"this"</b> parameter represents <span style="color: red;">the function context, the <span class="Fs24">object</span> on which our function is
                 invoked</span>, whereas the arguments parameter represents all arguments that are passed in through a
                 function call.
             </li>

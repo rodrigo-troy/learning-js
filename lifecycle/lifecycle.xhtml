@@ -81,7 +81,12 @@
 
     document.body.addEventListener("click", function () {
         let second = document.getElementById("second");
-        addMessage(second, "Event: click");
+        addMessage(second, "Event: click 1");
+    });
+
+    document.body.addEventListener("click", function () {
+        let second = document.getElementById("second");
+        addMessage(second, "Event: click 2");
     });
 </script>
 </body>
