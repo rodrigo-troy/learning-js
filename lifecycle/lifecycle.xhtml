@@ -31,6 +31,10 @@
 <script type="text/javascript">
     console.log("INICIO 1ER SCRIPT");
 
+    //Si se agregara la linea siguiente, la ejecución de javasscript
+    //fallaría ya que todavía no se ha definido el método addMessage
+    //addMessage(first, "Page loaded");
+
     window.onload = () => {
         console.log("Page loaded");
 
@@ -49,6 +53,7 @@
 
     //Si esta función se colocara en el 3er script, la llamada a esta no funcionaría en este bloque.
     function addMessage(element, message) {
+        console.log("addMessage")
         let messageElement = document.createElement("li");
         messageElement.textContent = message;
         element.appendChild(messageElement);
@@ -75,16 +80,19 @@
      */
 
     document.body.addEventListener("dblclick", function () {
+        console.log("dblclick");
         let second = document.getElementById("second");
         addMessage(second, "Event: dblclick");
     });
 
     document.body.addEventListener("click", function () {
+        console.log("click1");
         let second = document.getElementById("second");
         addMessage(second, "Event: click 1");
     });
 
     document.body.addEventListener("click", function () {
+        console.log("click2");
         let second = document.getElementById("second");
         addMessage(second, "Event: click 2");
     });
