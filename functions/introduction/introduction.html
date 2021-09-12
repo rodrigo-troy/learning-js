@@ -57,6 +57,21 @@
                         })
                     </script>
                     <li>Passed as parameters</li>
+                    <script type="text/javascript">
+                        let funcion4 = function () {
+                            console.log("Una función pasada como parámetro");
+                        }
+
+                        let funcionEjecutora = function (funcionPasadaComoParametro) {
+                            funcionPasadaComoParametro()
+                        }
+
+                        funcionEjecutora(funcion4);
+
+                        funcionEjecutora(() => {
+                            console.log("Otra función pasada como parámetro");
+                        });
+                    </script>
                     <li>Returned as function results</li>
                     <li>Assigned properties and methods</li>
                 </ul>
