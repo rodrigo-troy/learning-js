@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>A simple callback example</title>
     <meta charset="utf-8">
@@ -12,6 +13,7 @@
 <body>
 <script>
     var text = "Domo arigato!";
+    var number = 1;
     report("Before defining functions");
 
     function useless(ninjaCallback) {
@@ -24,14 +26,23 @@
         return text;
     }
 
+    function getNumber() {
+        report("In getNumber function");
+        return 1;
+    }
+
     report("Before making all the calls");
 
     assert(useless(getText) === text, "The useless function works! " + text);
+    assert(useless(() => {
+        return text
+    }) === text, "The useless function, with a function defined directly as an argument, also works! " + text);
+    assert(useless(getNumber) === number, "The useless function works! " + number);
 
     report("After the calls have been made");
 </script>
 <p>
-    Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 3 - First-class functions for the
+    Ejemplo extraído del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 3 - First-class functions for the
     novice: definitions and arguments
 </p>
 </body>
