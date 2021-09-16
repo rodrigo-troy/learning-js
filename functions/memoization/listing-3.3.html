@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Memoizing previously computed values</title>
     <meta charset="utf-8">
@@ -14,23 +16,18 @@
 <body>
 <script>
     function isPrime(value) {
-        console.log(isPrime.answers);
+        console.log("value: " + value);
 
-        var noExisteObjetoCache = !isPrime.answers;
-        console.log(noExisteObjetoCache);
-
-        if (noExisteObjetoCache) {
+        if (!isPrime.answers) {
             isPrime.answers = {};
         }
 
-        var answer = isPrime.answers[value];
-        console.log(answer);
-
-        if (answer !== undefined) {
-            return answer;
+        if (isPrime.answers[value] !== undefined) {
+            console.log("answer: " + isPrime.answers[value])
+            return isPrime.answers[value];
         }
 
-        var prime = value !== 1;
+        let prime = value !== 1;
 
         for (var i = 2; i < value; i++) {
             if (value % i === 0) {
@@ -44,7 +41,8 @@
 
     assert(isPrime(5), "5 is prime!");
     assert(isPrime.answers[5], "The answer was cached!");
-    assert(!isPrime(2), "2 isn't prime!");
+    assert(isPrime(5), "The answer was cached!");
+    assert(isPrime(4), "4 isn't prime!");
 </script>
 <p>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 3.2.2 - Self-memoizing functions
