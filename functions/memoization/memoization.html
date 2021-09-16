@@ -5,12 +5,12 @@
 <head>
     <title>Memoizing previously computed values</title>
     <meta charset="utf-8">
-    <link rel="stylesheet"
-          type="text/css"
-          href="assert.css">
-    <link rel="stylesheet"
-          type="text/css"
-          href="../../core.css">
+    <link href="assert.css"
+          rel="stylesheet"
+          type="text/css">
+    <link href="../../core.css"
+          rel="stylesheet"
+          type="text/css">
     <script src="assert.js"></script>
 </head>
 <body>
@@ -19,11 +19,12 @@
         console.log("value: " + value);
 
         if (!isPrime.answers) {
-            isPrime.answers = {};
+            isPrime.answers = [];
         }
 
         if (isPrime.answers[value] !== undefined) {
-            console.log("answer: " + isPrime.answers[value])
+            console.log("cached answer!");
+            console.log("answer for " + value + ": " + isPrime.answers[value])
             return isPrime.answers[value];
         }
 
@@ -36,17 +37,23 @@
             }
         }
 
-        //Curiosidad de javascript: En la linea a continuación la sentencia que asigna un valor a una variable, retorna un valor.
+        console.log("answer for " + value + ": " + prime)
         return isPrime.answers[value] = prime;
     }
 
     assert(isPrime(5), "5 is prime!");
-    assert(isPrime.answers[5], "The answer was cached!");
-    assert(isPrime(5), "The answer was cached!");
-    assert(isPrime(4), "4 isn't prime!");
+    assert(isPrime(5), "isPrime(5) was cached!");
+    assert(isPrime(14), "4 isn't prime!");
+    assert(isPrime(1), "1 isn't prime!");
+    assert(isPrime(6), "6 isn't prime!");
+    assert(!isPrime(6), "isPrime(6) was cached!");
+    assert(!isPrime(1), "isPrime(1) was cached!");
 </script>
 <p>
     Ejemplo extraido del Libro Secrets_of_the_JavaScript_Ninja_Second.pdf - CHAPTER 3.2.2 - Self-memoizing functions
+</p>
+<p>
+    Se cambió el "object" por un arreglo.
 </p>
 
 <ul>
