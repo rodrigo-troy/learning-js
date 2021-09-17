@@ -59,6 +59,38 @@
                 </ul>
             </li>
         </ul>
+        <script type="text/javascript">
+            let aFunction = function () {
+                console.log("Function expression example");
+            }
+
+            aFunction();
+
+            let anotherFunction = aFunction;
+            anotherFunction();
+
+            (function () {
+                console.log("A function expression invoked immediately")
+            })();
+
+            (function pepe() {
+                console.log("A named function expression invoked immediately")
+            })();
+
+            +function () {
+                console.log("A function expression invoked immediately, as argument to unary operators")
+            }();
+
+            console.log(function () {
+                return "Two function expression invoked immediately"
+            }() + function () {
+                return ", as argument"
+            }());
+
+            console.log(function () {
+                return "A function expression invoked immediately, as argument"
+            }());
+        </script>
     </li>
     <li>Arrow function
         <ul>
@@ -73,6 +105,26 @@
                 </ul>
             </li>
         </ul>
+        <script type="text/javascript">
+            let parentisar = text => "(" + text + ")";
+            console.log(parentisar("texto entre parentesis"));
+
+            let prefijoSufijo = (prefijo, texto, sufijo) => prefijo + texto + sufijo;
+            console.log(prefijoSufijo("&lt;", "un texto", ">"));
+
+            console.log((() => "Arrow function example")());
+
+            console.log((() => {
+                return "Arrow function example"
+            })());
+
+            console.log((() => {
+                let a = "Arrow ";
+                let b = "function ";
+                let c = "example ";
+                return a + b + c;
+            })());
+        </script>
     </li>
     <li>Function constructors
         <ul>
