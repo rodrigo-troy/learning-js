@@ -9,13 +9,36 @@
     <title>Immediately-Invoked Function Expression</title>
 </head>
 <body class="base">
-<script type="text/javascript"
-        src="jquery.js"></script>
-<script type="text/javascript"
-        src="IIFE.js"></script>
 
-<h1>Ver consola javascript</h1>
+<h1>Son funciones que son invocadas inmediatamente</h1>
+<script type="application/javascript">
+    (function () {
+        var a = 1;
+        console.log("Esto es una Immediately-Invoked Function Expression");
 
+        console.log(this);
+
+        console.log(this === window);
+
+        console.log(a);
+
+        console.log(this.a === window.a);
+    })();
+
+    +function () {
+        console.log("Otro ejemplo de IIFE");
+    }();
+
+    -function () {
+        console.log("-");
+    }();
+    !function () {
+        console.log("!");
+    }();
+    ~function () {
+        console.log("~");
+    }();
+</script>
 <a target="_blank"
    href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">Documentación</a>
 
