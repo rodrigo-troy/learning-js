@@ -51,9 +51,22 @@
                         return this;
                     }
 
-
                     assert(aFunction() === window, "En este caso this === windows");
                     assert(otraFuncion() === window, "En este otro caso this === windows");
+
+                    function functionConStrict() {
+                        "use strict";
+                        return this;
+                    }
+
+                    var otraFuncionConStrict = function () {
+                        "use strict";
+                        return this;
+                    }
+
+                    assert(functionConStrict() === undefined, "En este caso this === undefined");
+                    assert(otraFuncionConStrict() === undefined, "En este otro caso también this === undefined");
+
                 </script>
             </li>
             <li><span style="color: red;">In strict mode: it will be undefined</span>.
