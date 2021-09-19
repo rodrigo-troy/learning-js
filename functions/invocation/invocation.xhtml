@@ -7,13 +7,17 @@
       lang="en">
 <head>
     <title>Invocation</title>
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="../../assert.css"/>
     <link rel="stylesheet"
           type="text/css"
           href="../../core.css"/>
+    <script type="text/javascript"
+            src="../../assert.js"></script>
 </head>
 <body>
-<script type="text/javascript"
-        src="js/base.js"></script>
 <script type="text/javascript"
         src="js/methodInvocation.js"></script>
 <script type="text/javascript"
@@ -38,6 +42,19 @@
                 things:
             </li>
             <li><span style="color: red;">In nonstrict mode: it will be the global context (the window object)</span>.
+                <script type="application/javascript">
+                    let aFunction = function () {
+                        return this;
+                    };
+
+                    function otraFuncion() {
+                        return this;
+                    }
+
+
+                    assert(aFunction() === window, "En este caso this === windows");
+                    assert(otraFuncion() === window, "En este otro caso this === windows");
+                </script>
             </li>
             <li><span style="color: red;">In strict mode: it will be undefined</span>.
             </li>
