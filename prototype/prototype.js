@@ -1,9 +1,9 @@
 //Every Object is linked to a prototype object
-
-
+/*jshint esversion: 6 */
 if (typeof Object.create !== 'function') {
     Object.create = function (o) {
-        var F = function () {
+        "use strict";
+        const F = function () {
         };
 
         F.prototype = o;
@@ -13,4 +13,4 @@ if (typeof Object.create !== 'function') {
 }
 
 
-var another_stooge = Object.create(stooge);
+const another_stooge = Object.create({});
