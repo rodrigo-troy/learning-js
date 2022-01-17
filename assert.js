@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
-function assert(value,
-                text) {
+
+/* global console*/
+function assert(value, text) {
     "use strict";
     let li = document.createElement("li");
     li.className = value ? "pass" : "fail";
@@ -9,8 +10,7 @@ function assert(value,
     let results = document.getElementById("results");
     if (!results) {
         results = document.createElement("ul");
-        results.setAttribute('id',
-            'results');
+        results.setAttribute('id', 'results');
         document.body.appendChild(results);
     }
 
@@ -19,14 +19,12 @@ function assert(value,
 
 function pass(text) {
     "use strict";
-    assert(true,
-        text);
+    assert(true, text);
 }
 
 function fail(text) {
     "use strict";
-    assert(false,
-        text);
+    assert(false, text);
 }
 
 function report(text) {
