@@ -5,6 +5,7 @@
 }
 
 .hidden {
+    background: blue url('') no-repeat scroll 0px 0px;
     display: none;
     visibility: hidden;
 }
