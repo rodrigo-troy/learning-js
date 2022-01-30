@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 /* global console*/
-let cookBeans = () => {
+const cookBeans = () => {
     "use strict";
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -10,7 +10,7 @@ let cookBeans = () => {
     });
 };
 
-let steamBroccoli = () => {
+const steamBroccoli = () => {
     "use strict";
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -19,7 +19,7 @@ let steamBroccoli = () => {
     });
 };
 
-let cookRice = () => {
+const cookRice = () => {
     "use strict";
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -28,11 +28,10 @@ let cookRice = () => {
     });
 };
 
-let bakeChicken = () => {
+const bakeChicken = () => {
     "use strict";
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log("chicken");
             resolve('chicken');
         }, 1000);
     });
@@ -40,4 +39,10 @@ let bakeChicken = () => {
 
 module.exports = {cookBeans, steamBroccoli, cookRice, bakeChicken};
 
-bakeChicken();
+bakeChicken()
+    .then(data => {
+        "use strict";
+        console.log(data);
+    });
+
+
