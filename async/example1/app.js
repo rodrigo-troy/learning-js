@@ -1,11 +1,5 @@
 /*jshint esversion: 8 */
-
 /* global console*/
-
-const onfulfilled1 = (resolveValue) => {
-    "use strict";
-    console.log(`withConstructor(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
-};
 
 const withConstructor = (num) => {
     "use strict";
@@ -23,16 +17,17 @@ const withConstructor = (num) => {
     return new Promise(executor);
 };
 
+const onfulfilledForWithConstructor = (resolveValue) => {
+    "use strict";
+    console.log(`withConstructor(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
+};
+
 withConstructor(0)
-    .then(onfulfilled1);
+    .then(onfulfilledForWithConstructor);
 
 withConstructor(1)
-    .then(onfulfilled1);
+    .then(onfulfilledForWithConstructor);
 
-const onfulfilled2 = (resolveValue) => {
-    "use strict";
-    console.log(`withAsync(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
-};
 
 const withAsync = async (num) => {
     "use strict";
@@ -43,8 +38,13 @@ const withAsync = async (num) => {
     }
 };
 
-withAsync(100)
-    .then(onfulfilled2);
+const onfulfilledForWithAsync = (resolveValue) => {
+    "use strict";
+    console.log(`withAsync(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
+};
+
+withAsync(0)
+    .then(onfulfilledForWithAsync);
 
 withAsync(1)
-    .then(onfulfilled2);
+    .then(onfulfilledForWithAsync);

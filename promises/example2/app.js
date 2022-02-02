@@ -1,11 +1,14 @@
+/*jshint esversion: 6 */
+
+/* global console*/
 const inventory = {
-    sunglasses: 1900,
+    sunglasses: 0,
     pants: 1088,
     bags: 1344
 };
 
-// Write your code below:
 const myExecutor = (resolve, reject) => {
+    "use strict";
     if (inventory.sunglasses > 0) {
         resolve('Sunglasses order processed.');
     } else {
@@ -14,9 +17,16 @@ const myExecutor = (resolve, reject) => {
 };
 
 const orderSunglasses = () => {
+    "use strict";
     return new Promise(myExecutor);
 };
 
-const orderPromise = orderSunglasses();
-
-console.log(orderPromise);
+orderSunglasses()
+    .then((val) => {
+        "use strict";
+        console.log(val);
+    })
+    .catch((val) => {
+        "use strict";
+        console.log(val);
+    });
