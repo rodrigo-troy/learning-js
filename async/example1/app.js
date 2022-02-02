@@ -1,28 +1,15 @@
 /*jshint esversion: 8 */
 
 /* global console*/
-
-function getExecutor(num) {
-    return (resolve, reject) => {
-        if (num === 0) {
-            let newVar = [num, 'zero'];
-            resolve(newVar);
-        } else {
-            let newVar = [num, 'not zero'];
-            resolve(newVar);
-        }
-    };
-}
+const {
+    getExecutor,
+    onfulfilledForWithAsync,
+    onfulfilledForWithConstructor
+} = require('./library.js');
 
 const withConstructor = (num) => {
     "use strict";
-
     return new Promise(getExecutor(num));
-};
-
-const onfulfilledForWithConstructor = (resolveValue) => {
-    "use strict";
-    console.log(`withConstructor(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
 };
 
 withConstructor(0)
@@ -31,6 +18,12 @@ withConstructor(0)
 withConstructor(1)
     .then(onfulfilledForWithConstructor);
 
+//async functions always return a promise.
+//An async function will return in one of three ways:
+//1. If there’s nothing returned from the function, it will return a promise with a resolved value of undefined.
+//2. If there’s a non-promise value returned from the function, it will return a promise resolved to that value.
+//3. If a promise is returned from the function, it will simply return that promise.
+//In the example below, we returned a promise with a resolved value of an Array.
 const withAsync = async (num) => {
     "use strict";
     if (num === 0) {
@@ -38,11 +31,6 @@ const withAsync = async (num) => {
     } else {
         return [num, 'not zero'];
     }
-};
-
-const onfulfilledForWithAsync = (resolveValue) => {
-    "use strict";
-    console.log(`withAsync(${resolveValue[0]}) returned a promise which resolved to: ${resolveValue[1]}.`);
 };
 
 withAsync(0)
