@@ -11,7 +11,6 @@ function nativePromiseDinner() {
         });
 }
 
-// async/await version:
 async function announceDinner() {
     "use strict";
     return await brainstormDinner()
