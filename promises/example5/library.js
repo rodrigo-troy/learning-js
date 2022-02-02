@@ -16,11 +16,25 @@ const checkAvailability = (itemName, distributorName) => {
     });
 };
 
-module.exports = {checkAvailability};
-
-// This is a function that returns true 80% of the time
-// We're using it to simulate a request to the distributor being successful this often
 function restockSuccess() {
     "use strict";
     return (Math.random() > 0.2);
 }
+
+
+const onFulfill = (itemsArray) => {
+    "use strict";
+    console.log(`Items checked: ${itemsArray}`);
+    console.log(`Every item was available from the distributor. Placing order now.`);
+};
+
+const onReject = (rejectionReason) => {
+    "use strict";
+    console.log(rejectionReason);
+};
+
+module.exports = {
+    checkAvailability,
+    onFulfill,
+    onReject
+};

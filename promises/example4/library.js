@@ -44,8 +44,7 @@ const processPayment = (responseArray) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             let hasEnoughMoney = order.giftcardBalance >= total;
-            // For simplicity we've omited a lot of functionality
-            // If we were making more realistic code, we would want to update the giftcardBalance and the inventory
+
             if (hasEnoughMoney) {
                 console.log(`Payment processed with giftcard. Generating shipping label.`);
                 let trackingNum = generateTrackingNumber();
@@ -69,13 +68,11 @@ const shipOrder = (responseArray) => {
     });
 };
 
-// This function generates a random number to serve as a "tracking number" on the shipping label. In real life this wouldn't be a random number
 function generateTrackingNumber() {
     "use strict";
     return Math.floor(Math.random() * 1000000);
 }
 
-// This function generates a random number to serve as delay in a setTimeout() since real asynchrnous operations take variable amounts of time
 function generateRandomDelay() {
     "use strict";
     return Math.floor(Math.random() * 2000);
