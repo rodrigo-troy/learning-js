@@ -1,10 +1,9 @@
 /*jshint esversion: 8 */
+
 /* global console*/
 
-const withConstructor = (num) => {
-    "use strict";
-
-    let executor = (resolve, reject) => {
+function getExecutor(num) {
+    return (resolve, reject) => {
         if (num === 0) {
             let newVar = [num, 'zero'];
             resolve(newVar);
@@ -13,8 +12,12 @@ const withConstructor = (num) => {
             resolve(newVar);
         }
     };
+}
 
-    return new Promise(executor);
+const withConstructor = (num) => {
+    "use strict";
+
+    return new Promise(getExecutor(num));
 };
 
 const onfulfilledForWithConstructor = (resolveValue) => {
@@ -27,7 +30,6 @@ withConstructor(0)
 
 withConstructor(1)
     .then(onfulfilledForWithConstructor);
-
 
 const withAsync = async (num) => {
     "use strict";

@@ -7,9 +7,9 @@ const inventory = {
     bags: 1344
 };
 
-const checkInventory = (order) => {
+function getExecutor(order) {
     "use strict";
-    return new Promise((resolve, reject) => {
+    return (resolve, reject) => {
         setTimeout(() => {
             let inStock = order.every(item => inventory[item[0]] >= item[1]);
             if (inStock) {
@@ -18,7 +18,12 @@ const checkInventory = (order) => {
                 reject(`We're sorry. Your order could not be completed because some items are sold out.`);
             }
         }, 1000);
-    });
+    };
+}
+
+const checkInventory = (order) => {
+    "use strict";
+    return new Promise(getExecutor(order));
 };
 
 module.exports = {checkInventory};
