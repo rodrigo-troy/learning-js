@@ -3,6 +3,7 @@
 /* global console*/
 const cookBeans = () => {
     "use strict";
+    console.log('Starting cooking beans...');
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('beans');
@@ -12,37 +13,51 @@ const cookBeans = () => {
 
 const steamBroccoli = () => {
     "use strict";
+    console.log('Starting cooking broccoli...');
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('broccoli');
-        }, 1000);
+        }, 500);
     });
 };
 
 const cookRice = () => {
     "use strict";
+    console.log('Starting cooking rice...');
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('rice');
-        }, 1000);
+        }, 2000);
     });
 };
 
 const bakeChicken = () => {
     "use strict";
+    console.log('Starting cooking chicken...');
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('chicken');
-        }, 1000);
+        }, 5000);
     });
 };
 
-module.exports = {cookBeans, steamBroccoli, cookRice, bakeChicken};
+function getOnfulfilled() {
+    "use strict";
+    return data => {
+        console.log(`The ${data} is done!`);
+    };
+}
 
 bakeChicken()
-    .then(data => {
-        "use strict";
-        console.log(data);
-    });
+    .then(getOnfulfilled());
+
+cookRice()
+    .then(getOnfulfilled());
+
+cookBeans()
+    .then(getOnfulfilled());
+
+steamBroccoli()
+    .then(getOnfulfilled());
 
 
