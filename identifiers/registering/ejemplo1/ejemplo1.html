@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Overriding function identifiers</title>
@@ -8,10 +8,15 @@
     <link rel="stylesheet"
           type="text/css"
           href="assert.css">
+    <style>
+        div {
+            display: inline;
+        }
+    </style>
 </head>
 <body>
 <script>
-    const firstRonin = "Kiyokawa";
+    const firstRonin = "Haru";
     check(firstRonin);
 
     function check(ronin) {
@@ -25,7 +30,7 @@
 </h3>
 
 <p>
-    One of the driving principles behind the design of JavaScript as a programming lan- guage was its ease of use.
+    One of the driving principles behind the design of JavaScript as a programming language was its ease of use.
     That’s one of the main reasons for not specifying function return types, function parameter types, variable types,
     and so on. And you already know that JavaScript code is executed line by line, in a straightforward fashion.
 </p>
@@ -54,7 +59,7 @@
             body of other functions) for function declarations (but not function expressions or arrow functions!). For
             each discovered function declaration, a new function is created and bound to an identifier in the
             environment with the function’s name. If that identifier name already exists, its value is over- written. If
-            we’re dealing with block environments, this step is skipped.</br>
+            we’re dealing with block environments, this step is skipped.
         </li>
         <li>
             The current code is scanned for variable declarations. In function and global environments, all variables
@@ -63,12 +68,13 @@
             blocks are found. In block environments, the code is scanned only for variables declared with the keywords
             let and const, directly in the current block. For each discovered variable, if the identifier doesn’t exist
             in the environment, the identifier is registered and its value initialized to undefined. But if the
-            identifier exists, it’s left with its value. </br>
+            identifier exists, it’s left with its value.
         </li>
     </ol>
 </div>
-<div style="display: inline">
-    <img src="steps.png"/>
+<div>
+    <img alt="steps"
+         src="steps.png"/>
 </div>
 </body>
 </html>
