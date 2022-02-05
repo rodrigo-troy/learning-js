@@ -1,14 +1,14 @@
-var fade = function (node) {
+const fade = function (node) {
     console.log("inicio");
 
-    var level1 = 1;
-    var level2 = 15;
-    var step = function () {
+    const level1 = 1;
+    const level2 = 15;
+    const step = function () {
         console.log("level1 " + level1);
         console.log("level2 " + level2);
-        var hex1 = level1.toString(16);
-        var hex2 = level2.toString(16);
-        var backgroundColor = '#C0' + hex2 + hex1 + hex2 + hex1;
+        const hex1 = level1.toString(16);
+        const hex2 = level2.toString(16);
+        const backgroundColor = '#C0' + hex2 + hex1 + hex2 + hex1;
         console.log(backgroundColor);
 
         node.style.backgroundColor = backgroundColor;

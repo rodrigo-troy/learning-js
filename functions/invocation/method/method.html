@@ -11,7 +11,7 @@
 <body>
 <button id="test">Click Me!</button>
 <script>
-    var dog = {
+    const dog = {
         that: this,
         getMyContext: function () {
             console.log(this);
@@ -23,7 +23,7 @@
         }
     };
 
-    var dogContext = dog.getMyContextFunction();
+    const dogContext = dog.getMyContextFunction();
     // console.log((dog.getMyContextFunction())());
 
     //console.log(dog.that);

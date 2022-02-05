@@ -35,7 +35,7 @@
 
 <script>
     function Button2() {
-        var that = this;
+        const that = this;
         this.clicked = false;
         this.click = function () {
             console.log("this = " + this);
@@ -45,7 +45,7 @@
     }
 
     var button2 = new Button2();
-    var elem2 = document.getElementById("test2");
+    const elem2 = document.getElementById("test2");
     test2.addEventListener("click", button2.click);
 </script>
 

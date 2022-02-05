@@ -1,11 +1,11 @@
-var empty_object = {};
+const empty_object = {};
 
-var stooge = {
+const stooge = {
     "first-name": "Jerome",
     "last-name": "Howard"
 };
 
-var flight = {
+const flight = {
     airline: "Oceanic",
     number: 815,
     departure: {

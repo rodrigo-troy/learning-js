@@ -1,11 +1,11 @@
-var myObject = {
+const myObject = {
     value: 0,
     textoFijo: 'pepe',
     increment: function (inc) {
         this.incrementAndMessage(inc, 'Llamada interna');
 
-        var that = this;
-        var otraFuncion = function () {
+        const that = this;
+        const otraFuncion = function () {
             console.log("this: " + this.textoFijo);
             console.log("that: " + that.textoFijo);
         };

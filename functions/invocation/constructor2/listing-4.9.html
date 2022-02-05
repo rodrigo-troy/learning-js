@@ -10,7 +10,7 @@
 </head>
 <body>
 <script>
-    var puppet = {      //Creates our own object with a known property
+    const puppet = {      //Creates our own object with a known property
         rules: false,
         getMyContext: function () {
             return this;
@@ -30,7 +30,7 @@
         return puppet;
     }
 
-    var emperor = new Emperor();  //Invokes the function as a constructor
+    const emperor = new Emperor();  //Invokes the function as a constructor
     console.log(emperor.getMyContext());
 
     assert(emperor === puppet, "The emperor is merely a puppet!");

@@ -59,10 +59,10 @@
                         return this;
                     }
 
-                    var otraFuncionConStrict = function () {
+                    const otraFuncionConStrict = function () {
                         "use strict";
                         return this;
-                    }
+                    };
 
                     assert(functionConStrict() === undefined, "En este caso this === undefined");
                     assert(otraFuncionConStrict() === undefined, "En este otro caso también this === undefined");

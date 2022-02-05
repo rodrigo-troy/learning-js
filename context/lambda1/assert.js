@@ -2,11 +2,11 @@ function assert(value,
                 text) {
     console.log(text);
 
-    var li = document.createElement("li");
+    const li = document.createElement("li");
     li.className = value ? "pass" : "fail";
     li.appendChild(document.createTextNode(text));
 
-    var results = document.getElementById("results");
+    let results = document.getElementById("results");
     if (!results) {
         results = document.createElement("ul");
         results.setAttribute('id',

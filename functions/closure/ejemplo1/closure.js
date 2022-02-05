@@ -3,8 +3,8 @@
 })(1);
 
 
-var myObject = (function () {
-    var value = 0;
+const myObject = (function () {
+    let value = 0;
 
     return {
         increment: function (inc) {

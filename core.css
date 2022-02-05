@@ -4,22 +4,12 @@
     padding: 1em;
 }
 
-.hidden {
-    background: blue url('') no-repeat scroll 0px 0px;
-    display: none;
-    visibility: hidden;
-}
-
 .red {
     color: red;
 }
 
 .green {
     color: green;
-}
-
-.coral {
-    color: coral;
 }
 
 body {
@@ -78,10 +68,6 @@ li:last-child {
 #results li.fail {
     color: red;
     text-decoration: line-through;
-}
-
-.Fs20 {
-    font-size: 20px;
 }
 
 .Fs24 {

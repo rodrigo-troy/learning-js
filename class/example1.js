@@ -20,10 +20,10 @@ console.log(y.length);
 y[100] = 10;
 console.log(y.length);
 
-var start = 1;
+const start = 1;
 
 function setEnd() {
-    var end = 10;
+    const end = 10;
 }
 
 setEnd();

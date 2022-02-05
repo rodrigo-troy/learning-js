@@ -34,9 +34,9 @@
 <div id="box2">Second Box</div>
 <script>
     function animateIt(elementId, step) {
-        var elem = document.getElementById(elementId);   //Inside the animateIt function, we get a reference to that element.
-        var tick = 0;
-        var timer = setInterval(function () { //A built-in function that creates and starts an interval timer, given a callback
+        const elem = document.getElementById(elementId);   //Inside the animateIt function, we get a reference to that element.
+        const tick = 0;
+        const timer = setInterval(function () { //A built-in function that creates and starts an interval timer, given a callback
             if (tick < 100) {
                 elem.style.left = elem.style.top = tick + "px";
                 tick = tick + step;

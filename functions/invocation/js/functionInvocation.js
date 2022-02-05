@@ -1,7 +1,7 @@
 myObject.double = function () {
-    var that = this;
+    const that = this;
 
-    var helper = function () {
+    const helper = function () {
         that.value = add(that.value, that.value);
     };
 

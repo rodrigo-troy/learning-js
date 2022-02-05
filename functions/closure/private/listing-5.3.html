@@ -15,9 +15,9 @@
     //Defines the constructor for a Ninja
     function Ninja() {
         //Declares a variable inside the constructor function.
-        //Because the scope of the variable is limited to inside the constructor, it’s a “private” variable. 
+        //Because the scope of the variable is limited to inside the constructor, it’s a “private” variable.
         //We’ll use it to count how many times the ninja has feinted.
-        var feints = 0;
+        let feints = 0;
 
         //Creates an accessor method for the feints counter.
         //Because the variable isn’t accessible to code outside the constructor,
@@ -36,14 +36,14 @@
         };
     }
 
-    var ninja1 = new Ninja();
+    const ninja1 = new Ninja();
     ninja1.feint();
     ninja1.feint();
 
     assert(ninja1.feints === undefined, "And the private data is inaccessible to us.");
     assert(ninja1.getFeints() === 2, "We're able to access the internal feint count.");
 
-    var ninja2 = new Ninja();
+    const ninja2 = new Ninja();
     assert(ninja2.getFeints() === 0, "The second ninja object gets it’s own feints variable.");
 </script>
 

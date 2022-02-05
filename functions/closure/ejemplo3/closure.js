@@ -7,9 +7,9 @@ function f(x) {
 }
 
 //Tell f to create a new g
-var g5 = f(5);
+const g5 = f(5);
 
-var g1 = f(1);
+const g1 = f(1);
 
 
 console.log(g5());

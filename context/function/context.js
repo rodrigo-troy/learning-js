@@ -2,7 +2,7 @@ console.log("Inicio");
 
 console.log("\n¿Es 'this' el objeto window? " + (this === window));
 
-var a = 1;
+const a = 1;
 console.log("var a = 1;");
 console.log("¿es window.a === this.a?");
 console.log(window.a === this.a);
@@ -21,7 +21,7 @@ console.log("Tambien es 'windows', porque 'unaFuncion' esta vinculada al objeto 
 
 
 console.log("\n¿Y en el metodo de un objeto?");
-var unObject = {
+const unObject = {
     a: 1,
     unaFuncion: function () {
         console.log(this);
@@ -35,11 +35,11 @@ console.log("\nAunque le puedo pasar el context usando 'call':");
 unObject.unaFuncion.call(window);
 
 console.log("\n¿Y en un metodo definido dentro de otro metodo?");
-var otroObjeto = {
+const otroObjeto = {
     a: 1,
     unaFuncion: function () {
-        var that = this;
-        var funcionDentroDeOtraFuncion = function () {
+        const that = this;
+        const funcionDentroDeOtraFuncion = function () {
             console.log(this);
             console.log(that);
         };
@@ -53,7 +53,7 @@ console.log("Se debe usar una variable auxiliar (var that) para poder acceder al
 
 
 console.log("Independiente de lo anidado, si se declara una funcion usando la forma: var x = function(){}, el contexto sera windows");
-var objetosAnidados = {
+const objetosAnidados = {
     funcion0: function () {
         console.log(this);
     },
@@ -62,8 +62,8 @@ var objetosAnidados = {
             console.log(this);
         },
         funcion11: function () {
-            var funcionMuyAnidada = function () {
-                var funcionMasAnidadaAun = function () {
+            const funcionMuyAnidada = function () {
+                const funcionMasAnidadaAun = function () {
                     console.log(this);
                 };
 

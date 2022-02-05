@@ -1,13 +1,13 @@
 //Values are passed around by reference
 
-var stooge = {
+const stooge = {
     "first-name": "Jerome",
     "last-name": "Howard"
 };
 
-var x = stooge;
+const x = stooge;
 x.nickname = 'Curly';
-var nick = stooge.nickname;
+const nick = stooge.nickname;
 
 console.log(nick);
 

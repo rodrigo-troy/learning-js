@@ -12,15 +12,15 @@
 
 <body>
 <script>
-    var outerValue = "samurai";
-    var later;
-    var later2;
+    const outerValue = "samurai";
+    let later;
+    let later2;
 
     function outerFunction() {
-        var innerValue = "ninja";
+        const innerValue = "ninja";
 
         function innerFunction() {
-            var veryInnerValue = "ronin";
+            const veryInnerValue = "ronin";
 
             assert(outerValue === "samurai", "innerFunction: I can see the samurai.");
             assert(innerValue === "ninja", "innerFunction: I can see the ninja.");
