@@ -12,5 +12,4 @@ if (typeof Object.create !== 'function') {
     };
 }
 
-
 const another_stooge = Object.create({});
