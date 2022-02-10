@@ -15,3 +15,5 @@ for (let property in canary) {
         ownProps.push(property);
     }
 }
+
+console.log(ownProps);
