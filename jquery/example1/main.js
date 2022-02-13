@@ -1,47 +1,34 @@
 /*jshint esversion: 6 */
 
 /* global console*/
-$(document)
-    .ready(() => {
-        $('#cart')
-            .on('click',
-                () => {
-                    $('#cartMenu')
-                        .show();
-                });
+$(document).ready(() => {
+    $('#cart').on('click',
+                  () => {
+                      $('#cartMenu').show();
+                  });
 
-        $('#account')
-            .on('click',
-                () => {
-                    $('#accountMenu')
-                        .show();
-                });
+    $('#account').on('click',
+                     () => {
+                         $('#accountMenu').show();
+                     });
 
-        $('#help')
-            .on('click',
-                () => {
-                    $('#helpMenu')
-                        .show();
-                });
+    $('#help').on('click',
+                  () => {
+                      $('#helpMenu').show();
+                  });
 
-        $('#cartMenu')
-            .on('mouseleave',
-                () => {
-                    $('#cartMenu')
-                        .hide();
-                });
+    $('#cartMenu').on('mouseleave',
+                      () => {
+                          $('#cartMenu').hide();
+                      });
 
-        $('#accountMenu')
-            .on('mouseleave',
-                () => {
-                    $('#accountMenu')
-                        .hide();
-                });
+    $('#accountMenu').on('mouseleave',
+                         () => {
+                             $('#accountMenu').hide();
+                         });
 
-        $('#helpMenu')
-            .on('mouseleave',
-                () => {
-                    $('#helpMenu')
-                        .hide();
-                });
-    });
+    $('#helpMenu').on('mouseleave',
+                      () => {
+                          $('#helpMenu').hide();
+                      });
+});
