@@ -100,6 +100,10 @@ body {
     color: #4a90e2;
 }
 
+.borderRed {
+    border: 1px solid red;
+}
+
 .answer-text {
     font-family: Source Sans Pro;
     font-size: 42px;
