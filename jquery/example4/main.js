@@ -34,15 +34,17 @@ $(document).ready(() => {
 
     $('.postText').on('keyup',
                       (event) => {
+                          $('.nav-menu').hide();
                           const post = $(event.currentTarget).val();
                           const remaining = 140 - post.length;
-                          $('.nav-menu').hide();
-                          $('.characters').html(remaining);
+                          const $characters = $('.characters');
+
+                          $characters.html(remaining);
 
                           if (remaining <= 0) {
-                              $('.characters').addClass('red');
+                              $characters.addClass('red');
                           } else {
-                              $('.characters').removeClass('red');
+                              $characters.removeClass('red');
                           }
                       });
 });
