@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typo | Test-drive your text</title>
+    <link href="styles.css"
+          rel="stylesheet">
+</head>
+<body>
+<div class="outer-container">
+    <header>
+        <h1>TYP</h1>
+        <h2>Test-drive your text</h2>
+    </header>
+    <div class="formHolder">
+        <form method="POST">
+            <div class="third">
+                Font Family
+                <select id="font"
+                        name="font">
+                    <option id="helvetica"
+                            value="helvetica">Helvetica
+                    </option>
+                    <option id="times"
+                            value="times">Times
+                    </option>
+                    <option id="impact"
+                            value="impact">Impact
+                    </option>
+                    <option id="courier"
+                            value="courier">Courier
+                    </option>
+                    <option id="verdana"
+                            value="verdana">Verdana
+                    </option>
+                </select>
+            </div>
+            <div class="third">
+                Font Size
+                <br>
+                <input id="size"
+                       placeholder="12"
+                       type="text">
+            </div>
+            <div class="third">
+                Font Weight
+                <select id="weight"
+                        name="weight">
+                    <option value="normal">Normal</option>
+                    <option value="bold">Bold</option>
+                    <option value="bolder">Bolder</option>
+                    <option value="lighter">lighter</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="preview">Sample Font</div>
+    <textarea cols="30"
+              id="text"
+              name="text"
+              placeholder="Type something here and see what happens..."
+              rows="10"></textarea>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
