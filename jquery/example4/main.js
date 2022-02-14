@@ -21,6 +21,15 @@ $(document).ready(() => {
              .on('mouseleave',
                  (event) => {
                      $(event.currentTarget).removeClass('btn-hover');
+                 })
+             .on('click',
+                 (event) => {
+                     $(event.currentTarget).animate({
+                                                        color: '#EFEFEF',
+                                                        backgroundColor: '#303030',
+                                                        fontSize: '18px'
+                                                    },
+                                                    200);
                  });
 
     $('.postText').on('keyup',
