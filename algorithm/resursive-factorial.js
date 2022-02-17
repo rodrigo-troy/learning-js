@@ -8,4 +8,4 @@ function factorial(n) {
     }
 }
 
-console.log(factorial(1));
+console.log(factorial(3));
