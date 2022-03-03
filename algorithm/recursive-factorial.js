@@ -1,3 +1,6 @@
+/*jshint esversion: 8 */
+
+/* global console*/
 function factorial(n) {
     if (n === 0) {
         console.log('factorial(0) = 1');
@@ -8,4 +11,4 @@ function factorial(n) {
     }
 }
 
-console.log(factorial(3));
+console.log(factorial(0));
