@@ -12,8 +12,10 @@ function frankenSplice(arr1, arr2, n) {
     console.log("arr2: " + arr2);
 
     for (let i = 0; i < arr1.length; i++) {
-        //console.log(myArr2);
-        myArr2.splice(n + i, 0, myArr1[i]);
+        console.log(myArr2);
+        myArr2.splice(n + i,
+                      0,
+                      myArr1[i]);
     }
 
     //console.log(arr2);
